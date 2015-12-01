@@ -1,12 +1,18 @@
 #include <stdio.h>
 
-#ifdef BUILD_SVN_PREDEF
-    #define BUILD_SVN BUILD_SVN_PREDEF
-#endif
+#define BUILD_SVN   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+char* a = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+
+void print_version()
+{
+	printf("hello ubuntu!\n");
+	printf("BUILD_SVN = %s, a = %s\n",BUILD_SVN, a);	
+}
 
 int main()
 {
-	printf("hello ubuntu!\n");
-	printf("BUILD_SVN = %s\n",BUILD_SVN);
+	print_version();
 	return 0;
 }
+
+
