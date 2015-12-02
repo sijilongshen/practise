@@ -1,0 +1,230 @@
+In archive libcapbuf.a_old:
+
+npc_interface.o:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000000000 <_Z23Dbfw_InitLoopDataForNPPP15CapBuf_LoopDataPhit>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	48 89 7d f8          	mov    %rdi,0xfffffffffffffff8(%rbp)
+   8:	48 89 75 f0          	mov    %rsi,0xfffffffffffffff0(%rbp)
+   c:	89 55 ec             	mov    %edx,0xffffffffffffffec(%rbp)
+   f:	66 89 4d e8          	mov    %cx,0xffffffffffffffe8(%rbp)
+  13:	48 8b 55 f0          	mov    0xfffffffffffffff0(%rbp),%rdx
+  17:	48 81 ea 00 00 00 02 	sub    $0x2000000,%rdx
+  1e:	8b 45 ec             	mov    0xffffffffffffffec(%rbp),%eax
+  21:	c1 e0 19             	shl    $0x19,%eax
+  24:	48 98                	cltq   
+  26:	48 01 c2             	add    %rax,%rdx
+  29:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  2d:	48 89 10             	mov    %rdx,(%rax)
+  30:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  34:	48 8b 10             	mov    (%rax),%rdx
+  37:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  3b:	48 89 50 09          	mov    %rdx,0x9(%rax)
+  3f:	48 8b 45 f8          	mov    
+  43:	48 8b 40 09          	mov    0x9(%rax),%rax
+  47:	48 8d 90 00 00 0c 00 	lea    0xc0000(%rax),%rdx
+  4e:	48 8b 45 f8          	mov    
+  52:	48 89 50 19          	mov    %rdx,0x19(%rax)
+  56:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  5a:	48 8b 40 09          	mov    0x9(%rax),%rax
+  5e:	48 8d 90 00 00 00 01 	lea    0x1000000(%rax),%rdx
+  65:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  69:	48 89 50 11          	mov    
+  6d:	48 8b 45 f8          	mov    
+  71:	48 8b 40 11          	mov    
+  75:	48 8d 90 00 00 0c 00 	lea    0xc0000(%rax),%rdx
+  7c:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  80:	48 89 50 21          	mov    %rdx,0x21(%rax)
+  84:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  88:	c6 40 08 00          	movb   $0x0,0x8(%rax)
+  8c:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  90:	48 c7 40 29 00 00 00 	movq   $0x0,0x29(%rax)
+  97:	00 
+  98:	48 8b 45 f8          	mov    0xfffffffffffffff8(%rbp),%rax
+  9c:	48 c7 40 31 01 00 00 	movq   $0x1,0x31(%rax)
+  a3:	00 
+  a4:	48 8b 55 f8          	mov    0xfffffffffffffff8(%rbp),%rdx
+  a8:	0f b7 45 e8          	movzwl 0xffffffffffffffe8(%rbp),%eax
+  ac:	66 89 42 39          	mov    %ax,0x39(%rdx)
+  b0:	c9                   	leaveq 
+  b1:	c3                   	retq   
+
+00000000000000b2 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData>:
+  b2:	55                   	push   %rbp
+  b3:	48 89 e5             	mov    %rsp,%rbp
+  b6:	48 89 7d c8          	mov    %rdi,0xffffffffffffffc8(%rbp)
+  ba:	48 c7 45 d8 00 00 00 	movq   $0x0,0xffffffffffffffd8(%rbp)
+  c1:	00 
+  c2:	48 c7 45 e0 00 00 00 	movq   $0x0,0xffffffffffffffe0(%rbp)
+  c9:	00 
+  ca:	c7 45 f0 00 00 00 00 	movl   $0x0,0xfffffffffffffff0(%rbp)
+  d1:	c7 45 f4 00 00 00 00 	movl   $0x0,0xfffffffffffffff4(%rbp)
+  d8:	c6 45 fb 00          	movb   $0x0,0xfffffffffffffffb(%rbp)
+  dc:	c7 45 fc 00 00 01 00 	movl   $0x10000,0xfffffffffffffffc(%rbp)
+  e3:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+  e7:	48 8b 40 29          	mov    0x29(%rax),%rax
+  eb:	48 85 c0             	test   %rax,%rax
+  ee:	75 23                	jne    113 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x61>
+  f0:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+  f4:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  f8:	0f b6 c0             	movzbl %al,%eax
+  fb:	48 8b 55 c8          	mov    0xffffffffffffffc8(%rbp),%rdx
+  ff:	48 98                	cltq   
+ 101:	48 8b 44 c2 09       	mov    0x9(%rdx,%rax,8),%rax
+ 106:	48 89 45 d8          	mov    %rax,0xffffffffffffffd8(%rbp)
+ 10a:	c7 45 f4 00 00 00 40 	movl   $0x40000000,0xfffffffffffffff4(%rbp)
+ 111:	eb 53                	jmp    166 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0xb4>
+ 113:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 117:	48 8b 40 29          	mov    0x29(%rax),%rax
+ 11b:	48 83 c0 18          	add    $0x18,%rax
+ 11f:	48 89 45 d8          	mov    %rax,0xffffffffffffffd8(%rbp)
+ 123:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 127:	48 8b 40 29          	mov    0x29(%rax),%rax
+ 12b:	8b 50 08             	mov    0x8(%rax),%edx
+ 12e:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 132:	0f b7 40 39          	movzwl 0x39(%rax),%eax
+ 136:	0f b7 c0             	movzwl %ax,%eax
+ 139:	39 c2                	cmp    %eax,%edx
+ 13b:	74 12                	je     14f <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x9d>
+ 13d:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 141:	48 8b 40 29          	mov    0x29(%rax),%rax
+ 145:	8b 40 08             	mov    0x8(%rax),%eax
+ 148:	3d ff ff 00 00       	cmp    $0xffff,%eax
+ 14d:	75 10                	jne    15f <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0xad>
+ 14f:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 153:	48 8b 40 29          	mov    0x29(%rax),%rax
+ 157:	8b 40 14             	mov    0x14(%rax),%eax
+ 15a:	89 45 f4             	mov    %eax,0xfffffffffffffff4(%rbp)
+ 15d:	eb 07                	jmp    166 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0xb4>
+ 15f:	c7 45 f4 00 00 00 40 	movl   $0x40000000,0xfffffffffffffff4(%rbp)
+ 166:	81 7d f4 00 00 00 40 	cmpl   $0x40000000,0xfffffffffffffff4(%rbp)
+ 16d:	0f 84 d6 00 00 00    	je     249 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x197>
+ 173:	81 7d f4 ff 7f 00 00 	cmpl   $0x7fff,0xfffffffffffffff4(%rbp)
+ 17a:	7f 29                	jg     1a5 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0xf3>
+ 17c:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 180:	48 8b 40 09          	mov    0x9(%rax),%rax
+ 184:	48 89 45 e0          	mov    %rax,0xffffffffffffffe0(%rbp)
+ 188:	8b 45 f4             	mov    0xfffffffffffffff4(%rbp),%eax
+ 18b:	48 63 d0             	movslq %eax,%rdx
+ 18e:	48 89 d0             	mov    %rdx,%rax
+ 191:	48 01 c0             	add    %rax,%rax
+ 194:	48 01 d0             	add    %rdx,%rax
+ 197:	48 c1 e0 03          	shl    $0x3,%rax
+ 19b:	48 01 45 e0          	add    %rax,0xffffffffffffffe0(%rbp)
+ 19f:	c6 45 fb 00          	movb   $0x0,0xfffffffffffffffb(%rbp)
+ 1a3:	eb 2c                	jmp    1d1 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x11f>
+ 1a5:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 1a9:	48 8b 40 11          	mov    0x11(%rax),%rax
+ 1ad:	48 89 45 e0          	mov    %rax,0xffffffffffffffe0(%rbp)
+ 1b1:	8b 45 f4             	mov    0xfffffffffffffff4(%rbp),%eax
+ 1b4:	2d 00 80 00 00       	sub    $0x8000,%eax
+ 1b9:	48 63 d0             	movslq %eax,%rdx
+ 1bc:	48 89 d0             	mov    %rdx,%rax
+ 1bf:	48 01 c0             	add    %rax,%rax
+ 1c2:	48 01 d0             	add    %rdx,%rax
+ 1c5:	48 c1 e0 03          	shl    $0x3,%rax
+ 1c9:	48 01 45 e0          	add    %rax,0xffffffffffffffe0(%rbp)
+ 1cd:	c6 45 fb 01          	movb   $0x1,0xfffffffffffffffb(%rbp)
+ 1d1:	48 8b 45 e0          	mov    0xffffffffffffffe0(%rbp),%rax
+ 1d5:	8b 50 08             	mov    0x8(%rax),%edx
+ 1d8:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 1dc:	0f b7 40 39          	movzwl 0x39(%rax),%eax
+ 1e0:	0f b7 c0             	movzwl %ax,%eax
+ 1e3:	39 c2                	cmp    %eax,%edx
+ 1e5:	75 62                	jne    249 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x197>
+ 1e7:	48 8b 45 e0          	mov    0xffffffffffffffe0(%rbp),%rax
+ 1eb:	48 8b 10             	mov    (%rax),%rdx
+ 1ee:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 1f2:	48 8b 40 31          	mov    0x31(%rax),%rax
+ 1f6:	48 39 c2             	cmp    %rax,%rdx
+ 1f9:	72 4e                	jb     249 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x197>
+ 1fb:	48 8b 45 e0          	mov    0xffffffffffffffe0(%rbp),%rax
+ 1ff:	48 89 45 d0          	mov    %rax,0xffffffffffffffd0(%rbp)
+ 203:	48 8b 45 d0          	mov    0xffffffffffffffd0(%rbp),%rax
+ 207:	48 8b 00             	mov    (%rax),%rax
+ 20a:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 20e:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 212:	48 89 50 31          	mov    %rdx,0x31(%rax)
+ 216:	48 8b 55 d0          	mov    0xffffffffffffffd0(%rbp),%rdx
+ 21a:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 21e:	48 89 50 29          	mov    %rdx,0x29(%rax)
+ 222:	48 8b 55 c8          	mov    0xffffffffffffffc8(%rbp),%rdx
+ 226:	0f b6 45 fb          	movzbl 0xfffffffffffffffb(%rbp),%eax
+ 22a:	88 42 08             	mov    %al,0x8(%rdx)
+ 22d:	48 8b 55 d0          	mov    0xffffffffffffffd0(%rbp),%rdx
+ 231:	48 83 c2 08          	add    $0x8,%rdx
+ 235:	b8 ff ff 00 00       	mov    $0xffff,%eax
+ 23a:	87 02                	xchg   %eax,(%rdx)
+ 23c:	48 8b 45 d0          	mov    0xffffffffffffffd0(%rbp),%rax
+ 240:	48 89 45 c0          	mov    %rax,0xffffffffffffffc0(%rbp)
+ 244:	e9 e9 00 00 00       	jmpq   332 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x280>
+ 249:	c7 45 ec 00 00 00 00 	movl   $0x0,0xffffffffffffffec(%rbp)
+ 250:	e9 c9 00 00 00       	jmpq   31e <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x26c>
+ 255:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 259:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+ 25d:	0f b6 c0             	movzbl %al,%eax
+ 260:	48 8b 55 c8          	mov    0xffffffffffffffc8(%rbp),%rdx
+ 264:	48 98                	cltq   
+ 266:	48 8b 44 c2 19       	mov    0x19(%rdx,%rax,8),%rax
+ 26b:	48 3b 45 d8          	cmp    0xffffffffffffffd8(%rbp),%rax
+ 26f:	77 34                	ja     2a5 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x1f3>
+ 271:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 275:	0f b6 50 08          	movzbl 0x8(%rax),%edx
+ 279:	b8 01 00 00 00       	mov    $0x1,%eax
+ 27e:	89 c1                	mov    %eax,%ecx
+ 280:	28 d1                	sub    %dl,%cl
+ 282:	89 ca                	mov    %ecx,%edx
+ 284:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 288:	88 50 08             	mov    %dl,0x8(%rax)
+ 28b:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 28f:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+ 293:	0f b6 c0             	movzbl %al,%eax
+ 296:	48 8b 55 c8          	mov    0xffffffffffffffc8(%rbp),%rdx
+ 29a:	48 98                	cltq   
+ 29c:	48 8b 44 c2 09       	mov    0x9(%rdx,%rax,8),%rax
+ 2a1:	48 89 45 d8          	mov    %rax,0xffffffffffffffd8(%rbp)
+ 2a5:	48 8b 45 d8          	mov    0xffffffffffffffd8(%rbp),%rax
+ 2a9:	48 89 45 d0          	mov    %rax,0xffffffffffffffd0(%rbp)
+ 2ad:	48 8b 45 d0          	mov    0xffffffffffffffd0(%rbp),%rax
+ 2b1:	8b 40 08             	mov    0x8(%rax),%eax
+ 2b4:	89 45 f0             	mov    %eax,0xfffffffffffffff0(%rbp)
+ 2b7:	8b 55 f0             	mov    0xfffffffffffffff0(%rbp),%edx
+ 2ba:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 2be:	0f b7 40 39          	movzwl 0x39(%rax),%eax
+ 2c2:	0f b7 c0             	movzwl %ax,%eax
+ 2c5:	39 c2                	cmp    %eax,%edx
+ 2c7:	75 4c                	jne    315 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x263>
+ 2c9:	48 8b 45 d0          	mov    0xffffffffffffffd0(%rbp),%rax
+ 2cd:	48 8b 10             	mov    (%rax),%rdx
+ 2d0:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 2d4:	48 8b 40 31          	mov    0x31(%rax),%rax
+ 2d8:	48 39 c2             	cmp    %rax,%rdx
+ 2db:	72 38                	jb     315 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x263>
+ 2dd:	48 8b 45 d0          	mov    0xffffffffffffffd0(%rbp),%rax
+ 2e1:	48 8b 00             	mov    (%rax),%rax
+ 2e4:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 2e8:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 2ec:	48 89 50 31          	mov    %rdx,0x31(%rax)
+ 2f0:	48 8b 55 d0          	mov    0xffffffffffffffd0(%rbp),%rdx
+ 2f4:	48 8b 45 c8          	mov    0xffffffffffffffc8(%rbp),%rax
+ 2f8:	48 89 50 29          	mov    %rdx,0x29(%rax)
+ 2fc:	48 8b 55 d0          	mov    0xffffffffffffffd0(%rbp),%rdx
+ 300:	48 83 c2 08          	add    $0x8,%rdx
+ 304:	b8 ff ff 00 00       	mov    $0xffff,%eax
+ 309:	87 02                	xchg   %eax,(%rdx)
+ 30b:	48 8b 45 d0          	mov    0xffffffffffffffd0(%rbp),%rax
+ 30f:	48 89 45 c0          	mov    %rax,0xffffffffffffffc0(%rbp)
+ 313:	eb 1d                	jmp    332 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x280>
+ 315:	48 83 45 d8 18       	addq   $0x18,0xffffffffffffffd8(%rbp)
+ 31a:	83 45 ec 01          	addl   $0x1,0xffffffffffffffec(%rbp)
+ 31e:	8b 45 ec             	mov    0xffffffffffffffec(%rbp),%eax
+ 321:	3b 45 fc             	cmp    0xfffffffffffffffc(%rbp),%eax
+ 324:	0f 8c 2b ff ff ff    	jl     255 <_Z23Dbfw_GetNewHeaderForNPPP15CapBuf_LoopData+0x1a3>
+ 32a:	48 c7 45 c0 00 00 00 	movq   $0x0,0xffffffffffffffc0(%rbp)
+ 331:	00 
+ 332:	48 8b 45 c0          	mov    0xffffffffffffffc0(%rbp),%rax
+ 336:	c9                   	leaveq 
+ 337:	c3                   	retq   

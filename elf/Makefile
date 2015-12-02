@@ -2,12 +2,12 @@
 #»ñÈ¡ËùÓÐ .c .cpp ÎÄ¼þ src=$(wildcard *.c *.cpp ./sub/*.c) 
 #####################################################################
 source=$(wildcard *.c)
-header=$(wildcard ../include/*.h)
+#header=$(wildcard ../include/*.h)
 
 #####################################################################
 #±àÒëÆ÷Ê¹ÓÃ g++ »ò gcc 
 #####################################################################
-CC=gcc
+CC=gcc -g 
 
 #####################################################################
 #½«±äÁ¿ source µÄÂ·¾¶¶¼È¥µô ÀýÈç ./test/aaa.c ×ª»»Îª aaa.c
@@ -28,7 +28,7 @@ objects=$(patsubst %.c,%.o,$(source))
 #Òª±àÒëÉú³ÉµÄ³ÌÐòÁÐ±í
 #####################################################################
 #target=helloworld1 helloworld2
-target=hello
+target=getsvninfo
 
 all:$(target) 
 #####################################################################
@@ -43,9 +43,9 @@ all:$(target)
 #####################################################################
 #±àÒë²¢Êä³ö compiling hello world ÎÄ×Ö @echo "some word"
 #####################################################################
-hello:$(objects)
+getsvninfo:$(objects)
 	@echo "-- compiling hello world -- "
-	cc -o hello $(header) $(source) $(DEFINE)
+	$(CC) -o getsvninfo $(header) $(source) $(DEFINE)
 
 clean:
 	-rm $(target) $(objects)
