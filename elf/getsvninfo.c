@@ -8,8 +8,6 @@
 #include <sys/stat.h>
 #include <elf.h>
 
-#define ELF_FILE       "gmon"
-
 /*
 typedef struct
 {
@@ -44,7 +42,9 @@ typedef struct
 } Elf64_Shdr;
 */
 
-int main() 
+int findKeyStrIndex(const char* strAddr, const char* key);
+
+int main(int argc, char* argv[]) 
 {
 	int ret = 0;
 	int fd ;
@@ -52,22 +52,40 @@ int main()
 	int session_count = 0;
 	int session_size = 0;
 	int session_header_size = 0;
-	char svnnum[6];
 	char*   rodataAddr = NULL;
 	char*   printAddr = NULL;
 	char* tmpstr = NULL;
 	int tmpstrlen;
-	
 	int i = 0;
 	int index = 0;
 	int sess_index = 0;
-	char* findBuildFlag = NULL;
 	char ch = ' ';
+	int startIndex = 0;
+	int findflag = 0;
+	char *ELF_FILE = NULL;
+	char tmp[60];
 	
+	char svnnum[6];
+	char version[8];
+	char buildtime[20];
+
 	Elf64_Ehdr main_elf;
 	Elf64_Shdr   elf_session_header;
 	
+	if( argc != 2 )
+	{
+		printf("error: lack of argv\n");
+		printf("Usage: %s funcname\n", argv[0]);
+		exit(1);
+	}else
+	{
+		ELF_FILE = argv[1];
+	}
+	
 	bzero(svnnum, 6);
+	bzero(version, 8);
+	bzero(buildtime, 20);
+	bzero(tmp, 60);
 	memset(&main_elf,0,sizeof(Elf64_Ehdr));
 	memset(&elf_session_header,0,sizeof(Elf64_Shdr));
 	
@@ -81,7 +99,7 @@ int main()
 		perror("read main elf error");
 	}
 
-	printf("EFL Header:\n");
+/*	printf("EFL Header:\n");
 	printf("Magic:       ");
 	for(; i < EI_NIDENT ;i++)
 	{
@@ -112,7 +130,8 @@ int main()
 	printf("Size of section headers:                           %u\n",main_elf.e_shentsize);
 	printf("Number of sectionheaders:                          %u\n",main_elf.e_shnum);
 	printf("Section header string tableindex:                  %u\n",main_elf.e_shstrndx); 
-	
+*/
+
 	session_header_offset = main_elf.e_shoff;
 	session_count = main_elf.e_shnum;
 	session_header_size = main_elf.e_shentsize;
@@ -130,7 +149,6 @@ int main()
 		{
 			if(session_size > 0)
 			{
-				printf("elf_session_header.sh_size is %d\n",session_size);
 				rodataAddr = (char*)malloc(session_size);
 				if( rodataAddr == NULL)
 				{
@@ -169,29 +187,36 @@ int main()
 				/*0x00426fa0 0052656c 65617365 2025732e 25732e25 .Release %s.%s.%
 				  0x00426fb0 73204275 696c6420 25732025 730a004d s Build %s %s..M*/
 				/*查找 Build 关键字 验证前17位的字符串是不是Release 获取前51位的字符串 取五位转化为数值 */
-				findBuildFlag = strstr((const char*)printAddr, "Build");
-				if (findBuildFlag != NULL)
+				startIndex = 0;
+				while (findflag == 0)
 				{
-					tmpstr = printAddr;
-					while ( (tmpstr = strpbrk(tmpstr, "Build")) != NULL )
+					startIndex = findKeyStrIndex( printAddr + startIndex, "Build");
+					if ( startIndex == -1 )
 					{
-						tmpstrlen = strlen(tmpstr);
-						printf("tmpstrlen = %d session_size = %d\n", tmpstrlen, session_size);
-						printf("tmpstr = %c", tmpstr[0]);
-						printf("tmpstr = %c", tmpstr[1]);
-						printf("tmpstr = %c", tmpstr[2]);
-						printf("tmpstr = %c", tmpstr[3]);
-						printf("tmpstr = %c", tmpstr[4]);
-						if( ! strncmp( (char *)(printAddr+session_size+1-tmpstrlen-17), (const char*)"Release" , 7) )
-						{
-							memcpy(svnnum, (char *)(printAddr+session_size+1-tmpstrlen-51), 5);
-							svnnum[5] = '\0';								
-							printf("svn num is %d\n", atoi(svnnum));
-							bzero(svnnum, 6);
-						}
-						tmpstr = (char *)(printAddr+session_size+1-tmpstrlen+5);
+						break;
 					}
-				}				
+					if( !strncmp(printAddr + startIndex - 17, "Release", 7) )
+					{
+						memcpy(tmp, printAddr+startIndex-51, 60);
+						startIndex = startIndex - 51; 
+						findflag = 1;
+						break;
+					}
+					startIndex ++;
+				}
+				if ( findflag == 1 )
+				{
+					memcpy(svnnum, printAddr+startIndex, 5);
+					memcpy(buildtime, printAddr+startIndex+6, 19);
+					memcpy(version, printAddr+startIndex+26, 7);
+					svnnum[5] = '\0';
+					buildtime[19] = '\0';
+					version[7] = '\0';
+					printf("svnnum = %s\n", svnnum);
+					printf("buildtime = %s\n", buildtime);
+					printf("version = %s\n", version);
+					break;
+				}
 				
 				if( rodataAddr != NULL)
 				{
@@ -217,24 +242,57 @@ int main()
 }
 
 /***********************************************************
-* 描述：  查找字符串中svn号所在
-* 返回值：成功返回SVN号 失败返回 -1
+* DESCRIPTION：
+*	查找目标字符串中的第一个关键字符串位置下标
+*	找到目标字符串中的 关键字中第一个字母 找到则寻找第二个 全不找到返回第一个关键字下标 失败则返回-1
+* INPUT ： 
+*	const char*      strAddr;   目标字符串指针
+*	const char*      key;       关键字指针
+* OUTPUT： 
+*	成功则返回关键字下标，失败则返回-1
 * 
 ***********************************************************/
-/*
-# 313730353300323031352d31312d323700622a602031383a32333a303700322e3100320000622a70330052656c656173652025732e25732e00622a802573204275696c64
-# 17053.2015-11-27 18:23:07.2.1.2.3.Release %s.%s.%s Build
-# 版本号关键字长度为 136     Build hex 4275696c64 长度为 10   Release hex 52656c65617365 长度为 14 
-# 攻略：每找到一个Build关键字 查找他的前28个字符是不是Release不是的话 截掉这部分字符串继续查找
-# 使用 awk 获取 Build 关键字所在下标 查询他的前 28个字符
-##每找到一个关键字 ##
-*/
-int findSvnInfo(const char* strAddr)
+int findKeyStrIndex(const char* strAddr, const char* key)
 {
-	int ret = 0;
-	
-	
-	
+	int ret = -1;
+	int keylen = 0;
+	int keyStartIndex = 0;
+	int index = 0;
+	char ch;
+	char* tmpAddr = NULL;
+		
+	if (key == NULL || strAddr == NULL || strlen(strAddr) == 0 || strlen(key) == 0)
+	{
+		goto finish;
+	}
+
+	keylen = strlen(key);
+	for (;;)
+	{
+		ch = key[index];
+		//ch = 'l';
+		tmpAddr = strchr( strAddr + keyStartIndex, ch);
+		if ( tmpAddr == NULL)
+		{
+			goto finish;
+		}
+		for (index = 0;index < keylen;index ++)
+		{
+			if( key[index] != tmpAddr[index] )
+			{
+				break;
+			}
+		}
+		keyStartIndex = strlen(strAddr) - strlen(tmpAddr);
+		if(index >= keylen)
+		{
+			ret = keyStartIndex;
+			break;
+		}
+		keyStartIndex ++;
+	}
+
+finish:
 	return ret;
 	
 }
