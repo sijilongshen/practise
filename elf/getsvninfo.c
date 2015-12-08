@@ -66,6 +66,7 @@ int main(int argc, char* argv[])
 	char tmp[60];
 	
 	char svnnum[6];
+	int svn = 0;
 	char version[8];
 	char buildtime[20];
 
@@ -197,22 +198,27 @@ int main(int argc, char* argv[])
 					}
 					if( !strncmp(printAddr + startIndex - 17, "Release", 7) )
 					{
-						memcpy(tmp, printAddr+startIndex-51, 60);
-						startIndex = startIndex - 51; 
-						findflag = 1;
-						break;
+						/* 验证 svnnum 位置是否是数值 */
+						memcpy(svnnum, printAddr+startIndex-51, 5);
+						svnnum[5] = '\0';
+						svn = atoi(svnnum);
+						printf("svn = %d\n", svn);
+						if( svn > 10000 && svn < 100000)
+						{
+							memcpy(tmp, printAddr+startIndex-51, 60);
+							startIndex = startIndex - 51;
+							findflag = 1;
+							break;
+						}						
 					}
 					startIndex ++;
 				}
 				if ( findflag == 1 )
 				{
-					memcpy(svnnum, printAddr+startIndex, 5);
 					memcpy(buildtime, printAddr+startIndex+6, 19);
 					memcpy(version, printAddr+startIndex+26, 7);
-					svnnum[5] = '\0';
 					buildtime[19] = '\0';
 					version[7] = '\0';
-					printf("svnnum = %s\n", svnnum);
 					printf("buildtime = %s\n", buildtime);
 					printf("version = %s\n", version);
 					break;
