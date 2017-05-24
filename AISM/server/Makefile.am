@@ -1,0 +1,3 @@
+AUTOMAKE_OPTIONS=foreign
+bin_PROGRAMS=myserver
+myserver_SOURCES=myserver.cpp
