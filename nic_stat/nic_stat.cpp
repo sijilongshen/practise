@@ -102,21 +102,62 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-static int Rma_ParseSourceAndDestIpPort(u_char *p_frame_packet,
-        u_int* src_ip, u_short *src_port,u_int* dst_ip, u_short *dst_port)
+static int parse_ip_port(const u_char *p_frame_packet, u_int* src_ip, u_short *src_port, u_int* dst_ip, u_short *dst_port)
 {
-    u_char* p_ip_packet;
-    u_char* p_tcp_packet;
-    u_int ip_header_len;
+    int ret = 0;
+	const u_char* p_ip_packet;
+	const u_char* p_ip;
+	const u_char* p_tcp_packet;
+	u_int ip_header_len;
     u_int cursor = 0;
+	u_char protocol;
+	u_char control_field;
+    u_short eth_type_code = 0;
 
-    cursor = cursor + 14;
-    p_ip_packet = p_frame_packet+cursor;
+    memcpy(&eth_type_code,(u_char*)p_frame_packet+12,sizeof(u_short));
+    eth_type_code = ntohs(eth_type_code);
+    cursor = 14;
+    p_ip_packet = p_frame_packet+cursor;    
+    while(eth_type_code==0x8100)
+    {
+        /* 
+            Type: 802.1Q Virtual LAN (0x8100),后面跟着2字节的VLan信息和2字节的type信息 
+            这里假设type信息就是0x8000
+        */
+        /* 先跳过2字节 */
+        cursor = cursor + 2;
+        memcpy(&eth_type_code,(u_char*)p_frame_packet+cursor,sizeof(u_short));
+        eth_type_code = ntohs(eth_type_code);
+        cursor = cursor + 2;
+        p_ip_packet = p_frame_packet+cursor;
+        /* 
+            重要的防守逻辑：
+            理论上，可能会出现多次VLand，但不应该出现大量的VLan，因此这里设置一个防守逻辑：如果超过5次的VLan(20字节)则认为是不正确的TCPIP包 
+        */
+        if(cursor>(14+20))
+        {
+            protocol = 0;
+            return -1;
+        }
+    }
 
+	protocol = *(p_ip_packet+9);
+	if(protocol == 0x06 )
+	{
+        ret = 0;
+	}else if ( protocol == 0x11 )
+    {
+        ret = 10;
+    }else{
+        return -1;
+    }
+    
     /*解析出源ip*/
-    *src_ip = ntohl(*(u_int*)(p_ip_packet+12));
+    p_ip=p_ip_packet+12;
+    *src_ip = ntohl(*(u_int*)p_ip);
     /*解析出目的ip*/
-    *dst_ip = ntohl(*(u_int*)(p_ip_packet+16));
+    p_ip=p_ip_packet+16;
+    *dst_ip = ntohl(*(u_int*)p_ip);
 
     ip_header_len = (*p_ip_packet)&0x0f;
     p_tcp_packet = p_ip_packet + (ip_header_len<<2);
@@ -125,7 +166,25 @@ static int Rma_ParseSourceAndDestIpPort(u_char *p_frame_packet,
     /*解析出目的port*/
     *dst_port = ntohs(*(u_short*)(p_tcp_packet+2));
 
-    return 0;
+    control_field = *(p_tcp_packet+13);
+
+    if((control_field&0x12)==0x02)
+    {// 设置了SYN,但没有设置ACK,说明这是一个创建连接的第一个通讯包
+        return ret + 1;
+    }
+    else if((control_field&0x12)==0x12)
+    {
+        // 设置了SYN,也设置了ACK,说明这是一个创建连接的第一个应答包
+        return ret + 2;
+    }
+    
+	return ret;
+}
+
+static int parse_ip_port(u_char *p_frame_packet)
+{
+    u_char* p_ip_packet;
+    
 }
 
 void process_packet(u_char* arg, const struct pcap_pkthdr* pkthdr, const u_char* packet)
@@ -229,7 +288,7 @@ static void capture_packet_callback(u_char *argument,const struct pcap_pkthdr *p
         packet_current = packet_buffer;
     }
 
-    parse_ret = Rma_ParseSourceAndDestIpPort(packet_current, &src_ip, &src_port, &dst_ip, &dst_port);
+    parse_ret = parse_ip_port(packet_current, &src_ip, &src_port, &dst_ip, &dst_port);
     if (parse_ret < 0)
     {
         printf("capture_packet_callback parse failed, no matched packet,ret:%d\n",parse_ret);
