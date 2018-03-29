@@ -1,0 +1,673 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADAPTER	include/Packet32.h	/^}  ADAPTER, *LPADAPTER;$/;"	t	typeref:struct:_ADAPTER
+ADAPTER_DESC_LENGTH	include/Packet32.h	202;"	d
+ADAPTER_NAME_LENGTH	include/Packet32.h	201;"	d
+AIRPCAP_HANDLE__EAE405F5_0171_9592_B3C2_C19EC426AD34__DEFINED_	include/Packet32.h	54;"	d
+AIRPCAP_HANDLE__EAE405F5_0171_9592_B3C2_C19EC426AD34__DEFINED_	include/Win32-Extensions.h	59;"	d
+AirpcapAd	include/Packet32.h	/^	PAirpcapHandle	AirpcapAd;$/;"	m	struct:_ADAPTER
+BINOBJS	Makefile	/^BINOBJS = nic_stat.o $/;"	m
+BPF_A	include/pcap/bpf.h	894;"	d
+BPF_ABS	include/pcap/bpf.h	866;"	d
+BPF_ADD	include/pcap/bpf.h	874;"	d
+BPF_ALIGNMENT	include/pcap/bpf.h	76;"	d
+BPF_ALIGNMENT	include/pcap/bpf.h	78;"	d
+BPF_ALU	include/pcap/bpf.h	854;"	d
+BPF_AND	include/pcap/bpf.h	879;"	d
+BPF_B	include/pcap/bpf.h	863;"	d
+BPF_CLASS	include/pcap/bpf.h	849;"	d
+BPF_DIV	include/pcap/bpf.h	877;"	d
+BPF_EXECUTE	include/Win32-Extensions.h	71;"	d
+BPF_GET_REGISTER_VALUE	include/Win32-Extensions.h	77;"	d
+BPF_H	include/pcap/bpf.h	862;"	d
+BPF_IMM	include/pcap/bpf.h	865;"	d
+BPF_IND	include/pcap/bpf.h	867;"	d
+BPF_INIT	include/Win32-Extensions.h	72;"	d
+BPF_JA	include/pcap/bpf.h	883;"	d
+BPF_JEQ	include/pcap/bpf.h	884;"	d
+BPF_JGE	include/pcap/bpf.h	886;"	d
+BPF_JGT	include/pcap/bpf.h	885;"	d
+BPF_JMP	include/pcap/bpf.h	855;"	d
+BPF_JSET	include/pcap/bpf.h	887;"	d
+BPF_JUMP	include/pcap/bpf.h	915;"	d
+BPF_K	include/pcap/bpf.h	889;"	d
+BPF_LD	include/pcap/bpf.h	850;"	d
+BPF_LDX	include/pcap/bpf.h	851;"	d
+BPF_LEN	include/pcap/bpf.h	869;"	d
+BPF_LOOKUP	include/Win32-Extensions.h	70;"	d
+BPF_LSH	include/pcap/bpf.h	880;"	d
+BPF_MAJOR_VERSION	include/pcap/bpf.h	109;"	d
+BPF_MAXBUFSIZE	include/pcap/bpf.h	82;"	d
+BPF_MEM	include/pcap/bpf.h	868;"	d
+BPF_MEMWORDS	include/pcap/bpf.h	928;"	d
+BPF_MEM_EX	include/Win32-Extensions.h	67;"	d
+BPF_MEM_EX_IMM	include/Win32-Extensions.h	63;"	d
+BPF_MEM_EX_IND	include/Win32-Extensions.h	64;"	d
+BPF_MINBUFSIZE	include/pcap/bpf.h	83;"	d
+BPF_MINOR_VERSION	include/pcap/bpf.h	110;"	d
+BPF_MISC	include/pcap/bpf.h	857;"	d
+BPF_MISCOP	include/pcap/bpf.h	897;"	d
+BPF_MODE	include/pcap/bpf.h	864;"	d
+BPF_MSH	include/pcap/bpf.h	870;"	d
+BPF_MUL	include/pcap/bpf.h	876;"	d
+BPF_NEG	include/pcap/bpf.h	882;"	d
+BPF_OP	include/pcap/bpf.h	873;"	d
+BPF_OR	include/pcap/bpf.h	878;"	d
+BPF_RELEASE	include/pcap/bpf.h	61;"	d
+BPF_RESET	include/Win32-Extensions.h	75;"	d
+BPF_RET	include/pcap/bpf.h	856;"	d
+BPF_RSH	include/pcap/bpf.h	881;"	d
+BPF_RVAL	include/pcap/bpf.h	893;"	d
+BPF_SEPARATION	include/Win32-Extensions.h	82;"	d
+BPF_SET_ACTIVE	include/Win32-Extensions.h	74;"	d
+BPF_SET_ACTIVE_READ	include/Win32-Extensions.h	80;"	d
+BPF_SET_AUTODELETION	include/Win32-Extensions.h	81;"	d
+BPF_SET_MEMORY	include/Win32-Extensions.h	76;"	d
+BPF_SET_REGISTER_VALUE	include/Win32-Extensions.h	78;"	d
+BPF_SET_WORKING	include/Win32-Extensions.h	79;"	d
+BPF_SIZE	include/pcap/bpf.h	860;"	d
+BPF_SRC	include/pcap/bpf.h	888;"	d
+BPF_ST	include/pcap/bpf.h	852;"	d
+BPF_STMT	include/pcap/bpf.h	914;"	d
+BPF_STX	include/pcap/bpf.h	853;"	d
+BPF_SUB	include/pcap/bpf.h	875;"	d
+BPF_TAX	include/pcap/bpf.h	898;"	d
+BPF_TME	include/Win32-Extensions.h	68;"	d
+BPF_TXA	include/pcap/bpf.h	899;"	d
+BPF_VALIDATE	include/Win32-Extensions.h	73;"	d
+BPF_W	include/pcap/bpf.h	861;"	d
+BPF_WORDALIGN	include/pcap/bpf.h	80;"	d
+BPF_X	include/pcap/bpf.h	890;"	d
+Broadcast	include/Packet32.h	/^	struct sockaddr_storage Broadcast;	\/\/\/< Broadcast address.$/;"	m	struct:npf_if_addr	typeref:struct:npf_if_addr::sockaddr_storage
+Buffer	include/Packet32.h	/^	PVOID        Buffer;		\/\/\/< Buffer with containing the packets. See the PacketReceivePacket() for$/;"	m	struct:_PACKET
+CAP_READ_TIMEOUT	nic_stat.cpp	20;"	d	file:
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS	= -DUNIX -D_THREAD_SAFE -Iinclude -DHAVE_SELECT$/;"	m
+CPP	Makefile	/^CPP = g++$/;"	m
+DLT_A429	include/pcap/bpf.h	629;"	d
+DLT_A653_ICM	include/pcap/bpf.h	636;"	d
+DLT_AIRONET_HEADER	include/pcap/bpf.h	323;"	d
+DLT_APPLE_IP_OVER_IEEE1394	include/pcap/bpf.h	424;"	d
+DLT_ARCNET	include/pcap/bpf.h	135;"	d
+DLT_ARCNET_LINUX	include/pcap/bpf.h	392;"	d
+DLT_ATM_CLIP	include/pcap/bpf.h	179;"	d
+DLT_ATM_RFC1483	include/pcap/bpf.h	149;"	d
+DLT_AURORA	include/pcap/bpf.h	362;"	d
+DLT_AX25	include/pcap/bpf.h	131;"	d
+DLT_AX25_KISS	include/pcap/bpf.h	750;"	d
+DLT_BACNET_MS_TP	include/pcap/bpf.h	528;"	d
+DLT_BLUETOOTH_HCI_H4	include/pcap/bpf.h	648;"	d
+DLT_BLUETOOTH_HCI_H4_WITH_PHDR	include/pcap/bpf.h	741;"	d
+DLT_CAN20B	include/pcap/bpf.h	669;"	d
+DLT_CHAOS	include/pcap/bpf.h	133;"	d
+DLT_CHDLC	include/pcap/bpf.h	225;"	d
+DLT_CISCO_IOS	include/pcap/bpf.h	310;"	d
+DLT_CLASS	include/pcap/bpf.h	830;"	d
+DLT_CLASS_NETBSD_RAWAF	include/pcap/bpf.h	839;"	d
+DLT_C_HDLC	include/pcap/bpf.h	224;"	d
+DLT_C_HDLC_WITH_DIR	include/pcap/bpf.h	766;"	d
+DLT_DOCSIS	include/pcap/bpf.h	438;"	d
+DLT_ECONET	include/pcap/bpf.h	288;"	d
+DLT_EN10MB	include/pcap/bpf.h	129;"	d
+DLT_EN3MB	include/pcap/bpf.h	130;"	d
+DLT_ENC	include/pcap/bpf.h	263;"	d
+DLT_ENC	include/pcap/bpf.h	265;"	d
+DLT_ERF	include/pcap/bpf.h	714;"	d
+DLT_ERF_ETH	include/pcap/bpf.h	586;"	d
+DLT_ERF_POS	include/pcap/bpf.h	587;"	d
+DLT_FDDI	include/pcap/bpf.h	138;"	d
+DLT_FLEXRAY	include/pcap/bpf.h	785;"	d
+DLT_FRELAY	include/pcap/bpf.h	242;"	d
+DLT_FRELAY_WITH_DIR	include/pcap/bpf.h	767;"	d
+DLT_GCOM_SERIAL	include/pcap/bpf.h	571;"	d
+DLT_GCOM_T1E1	include/pcap/bpf.h	570;"	d
+DLT_GPF_F	include/pcap/bpf.h	564;"	d
+DLT_GPF_T	include/pcap/bpf.h	563;"	d
+DLT_GPRS_LLC	include/pcap/bpf.h	562;"	d
+DLT_HHDLC	include/pcap/bpf.h	328;"	d
+DLT_IBM_SN	include/pcap/bpf.h	461;"	d
+DLT_IBM_SP	include/pcap/bpf.h	460;"	d
+DLT_IEEE802	include/pcap/bpf.h	134;"	d
+DLT_IEEE802_11	include/pcap/bpf.h	227;"	d
+DLT_IEEE802_11_RADIO	include/pcap/bpf.h	369;"	d
+DLT_IEEE802_11_RADIO_AVS	include/pcap/bpf.h	515;"	d
+DLT_IEEE802_15_4	include/pcap/bpf.h	701;"	d
+DLT_IEEE802_15_4_LINUX	include/pcap/bpf.h	675;"	d
+DLT_IEEE802_15_4_NONASK_PHY	include/pcap/bpf.h	822;"	d
+DLT_IEEE802_16_MAC_CPS	include/pcap/bpf.h	654;"	d
+DLT_IEEE802_16_MAC_CPS_RADIO	include/pcap/bpf.h	687;"	d
+DLT_IPFILTER	include/pcap/bpf.h	293;"	d
+DLT_IPMB	include/pcap/bpf.h	728;"	d
+DLT_IPMB_LINUX	include/pcap/bpf.h	779;"	d
+DLT_IP_OVER_FC	include/pcap/bpf.h	338;"	d
+DLT_IS_NETBSD_RAWAF	include/pcap/bpf.h	842;"	d
+DLT_JUNIPER_ATM1	include/pcap/bpf.h	407;"	d
+DLT_JUNIPER_ATM2	include/pcap/bpf.h	405;"	d
+DLT_JUNIPER_CHDLC	include/pcap/bpf.h	607;"	d
+DLT_JUNIPER_ES	include/pcap/bpf.h	402;"	d
+DLT_JUNIPER_ETHER	include/pcap/bpf.h	604;"	d
+DLT_JUNIPER_FRELAY	include/pcap/bpf.h	606;"	d
+DLT_JUNIPER_GGSN	include/pcap/bpf.h	403;"	d
+DLT_JUNIPER_ISM	include/pcap/bpf.h	695;"	d
+DLT_JUNIPER_MFR	include/pcap/bpf.h	404;"	d
+DLT_JUNIPER_MLFR	include/pcap/bpf.h	401;"	d
+DLT_JUNIPER_MLPPP	include/pcap/bpf.h	400;"	d
+DLT_JUNIPER_MONITOR	include/pcap/bpf.h	523;"	d
+DLT_JUNIPER_PIC_PEER	include/pcap/bpf.h	578;"	d
+DLT_JUNIPER_PPP	include/pcap/bpf.h	605;"	d
+DLT_JUNIPER_PPPOE	include/pcap/bpf.h	559;"	d
+DLT_JUNIPER_PPPOE_ATM	include/pcap/bpf.h	560;"	d
+DLT_JUNIPER_SERVICES	include/pcap/bpf.h	406;"	d
+DLT_JUNIPER_ST	include/pcap/bpf.h	735;"	d
+DLT_JUNIPER_VP	include/pcap/bpf.h	620;"	d
+DLT_LAPB_WITH_DIR	include/pcap/bpf.h	768;"	d
+DLT_LAPD	include/pcap/bpf.h	757;"	d
+DLT_LIN	include/pcap/bpf.h	799;"	d
+DLT_LINUX_IRDA	include/pcap/bpf.h	455;"	d
+DLT_LINUX_LAPD	include/pcap/bpf.h	595;"	d
+DLT_LINUX_PPP_WITHDIRECTION	include/pcap/bpf.h	551;"	d
+DLT_LINUX_SLL	include/pcap/bpf.h	278;"	d
+DLT_LOOP	include/pcap/bpf.h	252;"	d
+DLT_LOOP	include/pcap/bpf.h	254;"	d
+DLT_LTALK	include/pcap/bpf.h	283;"	d
+DLT_MFR	include/pcap/bpf.h	612;"	d
+DLT_MOST	include/pcap/bpf.h	792;"	d
+DLT_MTP2	include/pcap/bpf.h	431;"	d
+DLT_MTP2_WITH_PHDR	include/pcap/bpf.h	430;"	d
+DLT_MTP3	include/pcap/bpf.h	432;"	d
+DLT_NETBSD_RAWAF	include/pcap/bpf.h	840;"	d
+DLT_NETBSD_RAWAF_AF	include/pcap/bpf.h	841;"	d
+DLT_NULL	include/pcap/bpf.h	128;"	d
+DLT_OLD_PFLOG	include/pcap/bpf.h	302;"	d
+DLT_PCI_EXP	include/pcap/bpf.h	361;"	d
+DLT_PFLOG	include/pcap/bpf.h	305;"	d
+DLT_PFSYNC	include/pcap/bpf.h	303;"	d
+DLT_PPI	include/pcap/bpf.h	681;"	d
+DLT_PPP	include/pcap/bpf.h	137;"	d
+DLT_PPP_BSDOS	include/pcap/bpf.h	166;"	d
+DLT_PPP_BSDOS	include/pcap/bpf.h	170;"	d
+DLT_PPP_ETHER	include/pcap/bpf.h	193;"	d
+DLT_PPP_PPPD	include/pcap/bpf.h	544;"	d
+DLT_PPP_SERIAL	include/pcap/bpf.h	192;"	d
+DLT_PPP_WITH_DIR	include/pcap/bpf.h	765;"	d
+DLT_PPP_WITH_DIRECTION	include/pcap/bpf.h	550;"	d
+DLT_PRISM_HEADER	include/pcap/bpf.h	317;"	d
+DLT_PRONET	include/pcap/bpf.h	132;"	d
+DLT_RAIF1	include/pcap/bpf.h	721;"	d
+DLT_RAW	include/pcap/bpf.h	152;"	d
+DLT_RAW	include/pcap/bpf.h	154;"	d
+DLT_REDBACK_SMARTEDGE	include/pcap/bpf.h	185;"	d
+DLT_RIO	include/pcap/bpf.h	360;"	d
+DLT_SCCP	include/pcap/bpf.h	433;"	d
+DLT_SITA	include/pcap/bpf.h	707;"	d
+DLT_SLIP	include/pcap/bpf.h	136;"	d
+DLT_SLIP_BSDOS	include/pcap/bpf.h	165;"	d
+DLT_SLIP_BSDOS	include/pcap/bpf.h	169;"	d
+DLT_SUNATM	include/pcap/bpf.h	354;"	d
+DLT_SYMANTEC_FIREWALL	include/pcap/bpf.h	202;"	d
+DLT_TZSP	include/pcap/bpf.h	379;"	d
+DLT_USB	include/pcap/bpf.h	642;"	d
+DLT_USB_LINUX	include/pcap/bpf.h	660;"	d
+DLT_USER0	include/pcap/bpf.h	488;"	d
+DLT_USER1	include/pcap/bpf.h	489;"	d
+DLT_USER10	include/pcap/bpf.h	498;"	d
+DLT_USER11	include/pcap/bpf.h	499;"	d
+DLT_USER12	include/pcap/bpf.h	500;"	d
+DLT_USER13	include/pcap/bpf.h	501;"	d
+DLT_USER14	include/pcap/bpf.h	502;"	d
+DLT_USER15	include/pcap/bpf.h	503;"	d
+DLT_USER2	include/pcap/bpf.h	490;"	d
+DLT_USER3	include/pcap/bpf.h	491;"	d
+DLT_USER4	include/pcap/bpf.h	492;"	d
+DLT_USER5	include/pcap/bpf.h	493;"	d
+DLT_USER6	include/pcap/bpf.h	494;"	d
+DLT_USER7	include/pcap/bpf.h	495;"	d
+DLT_USER8	include/pcap/bpf.h	496;"	d
+DLT_USER9	include/pcap/bpf.h	497;"	d
+DLT_X2E_SERIAL	include/pcap/bpf.h	805;"	d
+DLT_X2E_XORAYA	include/pcap/bpf.h	811;"	d
+DOSNAMEPREFIX	include/Packet32.h	184;"	d
+DagBuffer	include/Packet32.h	/^	PCHAR DagBuffer;			\/\/\/< Pointer to the buffer with the packets that is received from the DAG card$/;"	m	struct:_ADAPTER
+DagFastProcess	include/Packet32.h	/^	DWORD DagFastProcess;		\/\/\/< True if the user requests fast capture processing on this card. Higher level applications can use this value to provide a faster but possibly unprecise capture (for example, libpcap doesn't convert the timestamps).$/;"	m	struct:_ADAPTER
+DagFcsLen	include/Packet32.h	/^	unsigned DagFcsLen;			\/\/\/< Length of the frame check sequence attached to any packet by the card. Obtained from the registry$/;"	m	struct:_ADAPTER
+DagReadTimeout	include/Packet32.h	/^	struct timeval DagReadTimeout;	\/\/\/< Read timeout. The dagc API requires a timeval structure$/;"	m	struct:_ADAPTER	typeref:struct:_ADAPTER::timeval
+Data	include/Packet32.h	/^    UCHAR Data[1];				\/\/\/< variable-lenght field that contains the information passed to or received $/;"	m	struct:_PACKET_OID_DATA
+Flags	include/Packet32.h	/^	UINT Flags;					\/\/\/< Adapter's flags. Tell if this adapter must be treated in a different way, using the Netmon API or the dagc API.$/;"	m	struct:_ADAPTER
+HAVE_INT16_T	include/bittypes.h	63;"	d
+HAVE_INT32_T	include/bittypes.h	82;"	d
+HAVE_INT8_T	include/bittypes.h	44;"	d
+HAVE_U_INT16_T	include/bittypes.h	62;"	d
+HAVE_U_INT32_T	include/bittypes.h	81;"	d
+HAVE_U_INT8_T	include/bittypes.h	43;"	d
+IN6ADDR_ANY_INIT	include/ip6_misc.h	56;"	d
+IN6ADDR_LOOPBACK_INIT	include/ip6_misc.h	57;"	d
+IN6_IS_ADDR_LINKLOCAL	include/ip6_misc.h	86;"	d
+IN6_IS_ADDR_LOOPBACK	include/ip6_misc.h	89;"	d
+IN6_IS_ADDR_MULTICAST	include/ip6_misc.h	84;"	d
+IN6_IS_ADDR_V4MAPPED	include/ip6_misc.h	80;"	d
+INFO_FLAG_AIRPCAP_CARD	include/Packet32.h	215;"	d
+INFO_FLAG_DAG_CARD	include/Packet32.h	212;"	d
+INFO_FLAG_DAG_FILE	include/Packet32.h	213;"	d
+INFO_FLAG_DONT_EXPORT	include/Packet32.h	214;"	d
+INFO_FLAG_NDISWAN_ADAPTER	include/Packet32.h	211;"	d
+INFO_FLAG_NDIS_ADAPTER	include/Packet32.h	210;"	d
+INFO_FLAG_NPFIM_DEVICE	include/Packet32.h	216;"	d
+IN_EXPERIMENTAL	include/ip6_misc.h	36;"	d
+IN_LOOPBACKNET	include/ip6_misc.h	38;"	d
+IN_MULTICAST	include/ip6_misc.h	33;"	d
+IP6OPT_BINDING_ACK	include/ip6_misc.h	136;"	d
+IP6OPT_BINDING_REQ	include/ip6_misc.h	137;"	d
+IP6OPT_BINDING_UPDATE	include/ip6_misc.h	135;"	d
+IP6OPT_EID	include/ip6_misc.h	139;"	d
+IP6OPT_HOME_ADDRESS	include/ip6_misc.h	138;"	d
+IP6OPT_JUMBO	include/ip6_misc.h	125;"	d
+IP6OPT_JUMBO_LEN	include/ip6_misc.h	126;"	d
+IP6OPT_MINLEN	include/ip6_misc.h	133;"	d
+IP6OPT_MUTABLE	include/ip6_misc.h	147;"	d
+IP6OPT_PAD1	include/ip6_misc.h	123;"	d
+IP6OPT_PADN	include/ip6_misc.h	124;"	d
+IP6OPT_ROUTER_ALERT	include/ip6_misc.h	127;"	d
+IP6OPT_RTALERT_ACTNET	include/ip6_misc.h	132;"	d
+IP6OPT_RTALERT_LEN	include/ip6_misc.h	129;"	d
+IP6OPT_RTALERT_MLD	include/ip6_misc.h	130;"	d
+IP6OPT_RTALERT_RSVP	include/ip6_misc.h	131;"	d
+IP6OPT_TYPE	include/ip6_misc.h	141;"	d
+IP6OPT_TYPE_DISCARD	include/ip6_misc.h	143;"	d
+IP6OPT_TYPE_FORCEICMP	include/ip6_misc.h	144;"	d
+IP6OPT_TYPE_ICMP	include/ip6_misc.h	145;"	d
+IP6OPT_TYPE_SKIP	include/ip6_misc.h	142;"	d
+IPAddress	include/Packet32.h	/^	struct sockaddr_storage IPAddress;	\/\/\/< IP address.$/;"	m	struct:npf_if_addr	typeref:struct:npf_if_addr::sockaddr_storage
+IPPROTO_AH	include/ip6_misc.h	114;"	d
+IPPROTO_DSTOPTS	include/ip6_misc.h	117;"	d
+IPPROTO_ESP	include/ip6_misc.h	113;"	d
+IPPROTO_FRAGMENT	include/ip6_misc.h	112;"	d
+IPPROTO_HOPOPTS	include/ip6_misc.h	109;"	d
+IPPROTO_ICMPV6	include/ip6_misc.h	115;"	d
+IPPROTO_IPV6	include/ip6_misc.h	110;"	d
+IPPROTO_NONE	include/ip6_misc.h	116;"	d
+IPPROTO_PIM	include/ip6_misc.h	118;"	d
+IPPROTO_ROUTING	include/ip6_misc.h	111;"	d
+IPV6_RTHDR_TYPE_0	include/ip6_misc.h	120;"	d
+LIBFLAGS	Makefile	/^LIBFLAGS = -lpthread -lrt -L.\/lib .\/lib\/libpcap.a .\/lib\/libpfring.a .\/lib\/libnuma.a$/;"	m
+LINUX_SLL_BROADCAST	include/pcap/sll.h	100;"	d
+LINUX_SLL_HOST	include/pcap/sll.h	99;"	d
+LINUX_SLL_MULTICAST	include/pcap/sll.h	101;"	d
+LINUX_SLL_OTHERHOST	include/pcap/sll.h	102;"	d
+LINUX_SLL_OUTGOING	include/pcap/sll.h	103;"	d
+LINUX_SLL_P_802_2	include/pcap/sll.h	127;"	d
+LINUX_SLL_P_802_3	include/pcap/sll.h	126;"	d
+LPADAPTER	include/Packet32.h	/^}  ADAPTER, *LPADAPTER;$/;"	t	typeref:struct:_ADAPTER
+LPPACKET	include/Packet32.h	/^}  PACKET, *LPPACKET;$/;"	t	typeref:struct:_PACKET
+LT_FCS_DATALINK_EXT	include/pcap/pcap.h	147;"	d
+LT_FCS_LENGTH	include/pcap/pcap.h	146;"	d
+LT_FCS_LENGTH_PRESENT	include/pcap/pcap.h	145;"	d
+Length	include/Packet32.h	/^	UINT         Length;		\/\/\/< Length of the buffer$/;"	m	struct:_PACKET
+Length	include/Packet32.h	/^    ULONG Length;				\/\/\/< Length of the data field$/;"	m	struct:_PACKET_OID_DATA
+LinkSpeed	include/Packet32.h	/^	ULONGLONG LinkSpeed;	\/\/\/< The speed of the network in bits per second$/;"	m	struct:NetType
+LinkType	include/Packet32.h	/^	UINT LinkType;	\/\/\/< The MAC of the current network adapter (see function PacketGetNetType() for more information)$/;"	m	struct:NetType
+MAX_LINK_NAME_LENGTH	include/Packet32.h	185;"	d
+MAX_MAC_ADDR_LENGTH	include/Packet32.h	203;"	d
+MAX_NETWORK_ADDRESSES	include/Packet32.h	204;"	d
+MODE_CAPT	include/pcap/pcap.h	374;"	d
+MODE_MON	include/pcap/pcap.h	376;"	d
+MODE_STAT	include/pcap/pcap.h	375;"	d
+NMAX_PACKET	include/Packet32.h	186;"	d
+NPF_DISABLE_LOOPBACK	include/Packet32.h	84;"	d
+NPF_ENABLE_LOOPBACK	include/Packet32.h	85;"	d
+Name	include/Packet32.h	/^	CHAR Name[ADAPTER_NAME_LENGTH];$/;"	m	struct:_ADAPTER
+NdisMediumBare80211	include/Packet32.h	79;"	d
+NdisMediumCHDLC	include/Packet32.h	77;"	d
+NdisMediumNull	include/Packet32.h	76;"	d
+NdisMediumPPPSerial	include/Packet32.h	78;"	d
+NdisMediumPpi	include/Packet32.h	81;"	d
+NdisMediumRadio80211	include/Packet32.h	80;"	d
+NetType	include/Packet32.h	/^typedef struct NetType$/;"	s
+NetType	include/Packet32.h	/^}NetType;$/;"	t	typeref:struct:NetType
+Nic_Info	nic_stat.cpp	/^typedef struct Nic_Info{$/;"	s	file:
+Nic_Mgr	nic_stat.cpp	/^nic_info Nic_Mgr[16];$/;"	v
+NpfImHandle	include/Packet32.h	/^	void* NpfImHandle;$/;"	m	struct:_ADAPTER
+NumWrites	include/Packet32.h	/^	int NumWrites;				\/\/\/< \\internal Number of times a packets written on this adapter will be repeated $/;"	m	struct:_ADAPTER
+Oid	include/Packet32.h	/^    ULONG Oid;					\/\/\/< OID code. See the Microsoft DDK documentation or the file ntddndis.h$/;"	m	struct:_PACKET_OID_DATA
+OverLapped	include/Packet32.h	/^	OVERLAPPED   OverLapped;	\/\/\/< \\deprecated Still present for compatibility with old applications.$/;"	m	struct:_PACKET
+PACKET	include/Packet32.h	/^}  PACKET, *LPPACKET;$/;"	t	typeref:struct:_PACKET
+PACKET_MODE_CAPT	include/Packet32.h	64;"	d
+PACKET_MODE_DUMP	include/Packet32.h	67;"	d
+PACKET_MODE_MON	include/Packet32.h	66;"	d
+PACKET_MODE_STAT	include/Packet32.h	65;"	d
+PACKET_MODE_STAT_DUMP	include/Packet32.h	68;"	d
+PACKET_OID_DATA	include/Packet32.h	/^typedef struct _PACKET_OID_DATA PACKET_OID_DATA, *PPACKET_OID_DATA;$/;"	t	typeref:struct:_PACKET_OID_DATA
+PACKET_START_OEM_NO_NETMON	include/Packet32.h	353;"	d
+PAirpcapHandle	include/Packet32.h	/^typedef struct _AirpcapHandle *PAirpcapHandle;$/;"	t	typeref:struct:_AirpcapHandle
+PAirpcapHandle	include/Win32-Extensions.h	/^typedef struct _AirpcapHandle *PAirpcapHandle;$/;"	t	typeref:struct:_AirpcapHandle
+PCAP_BUF_SIZE	include/remote-ext.h	79;"	d
+PCAP_D_IN	include/pcap/pcap.h	/^       PCAP_D_IN,$/;"	e	enum:__anon2
+PCAP_D_INOUT	include/pcap/pcap.h	/^       PCAP_D_INOUT = 0,$/;"	e	enum:__anon2
+PCAP_D_OUT	include/pcap/pcap.h	/^       PCAP_D_OUT$/;"	e	enum:__anon2
+PCAP_ERRBUF_SIZE	include/pcap/pcap.h	76;"	d
+PCAP_ERROR	include/pcap/pcap.h	253;"	d
+PCAP_ERROR_ACTIVATED	include/pcap/pcap.h	256;"	d
+PCAP_ERROR_BREAK	include/pcap/pcap.h	254;"	d
+PCAP_ERROR_IFACE_NOT_UP	include/pcap/pcap.h	261;"	d
+PCAP_ERROR_NOT_ACTIVATED	include/pcap/pcap.h	255;"	d
+PCAP_ERROR_NOT_RFMON	include/pcap/pcap.h	259;"	d
+PCAP_ERROR_NO_SUCH_DEVICE	include/pcap/pcap.h	257;"	d
+PCAP_ERROR_PERM_DENIED	include/pcap/pcap.h	260;"	d
+PCAP_ERROR_RFMON_NOTSUP	include/pcap/pcap.h	258;"	d
+PCAP_ETHERS_FILE	include/pcap/namedb.h	55;"	d
+PCAP_IF_LOOPBACK	include/pcap/pcap.h	231;"	d
+PCAP_OPENFLAG_DATATX_UDP	include/remote-ext.h	217;"	d
+PCAP_OPENFLAG_MAX_RESPONSIVENESS	include/remote-ext.h	248;"	d
+PCAP_OPENFLAG_NOCAPTURE_LOCAL	include/remote-ext.h	237;"	d
+PCAP_OPENFLAG_NOCAPTURE_RPCAP	include/remote-ext.h	228;"	d
+PCAP_OPENFLAG_PROMISCUOUS	include/remote-ext.h	203;"	d
+PCAP_SAMP_1_EVERY_N	include/remote-ext.h	275;"	d
+PCAP_SAMP_FIRST_AFTER_N_MS	include/remote-ext.h	285;"	d
+PCAP_SAMP_NOSAMP	include/remote-ext.h	265;"	d
+PCAP_SRC_FILE	include/remote-ext.h	93;"	d
+PCAP_SRC_FILE_STRING	include/remote-ext.h	164;"	d
+PCAP_SRC_IFLOCAL	include/remote-ext.h	101;"	d
+PCAP_SRC_IFREMOTE	include/remote-ext.h	109;"	d
+PCAP_SRC_IF_STRING	include/remote-ext.h	177;"	d
+PCAP_VERSION_MAJOR	include/pcap/pcap.h	73;"	d
+PCAP_VERSION_MINOR	include/pcap/pcap.h	74;"	d
+PCAP_WARNING	include/pcap/pcap.h	268;"	d
+PCAP_WARNING_PROMISC_NOTSUP	include/pcap/pcap.h	269;"	d
+PPACKET_OID_DATA	include/Packet32.h	/^typedef struct _PACKET_OID_DATA PACKET_OID_DATA, *PPACKET_OID_DATA;$/;"	t	typeref:struct:
+PRId64	include/bittypes.h	107;"	d
+PRId64	include/bittypes.h	109;"	d
+PRIo64	include/bittypes.h	115;"	d
+PRIo64	include/bittypes.h	117;"	d
+PRIu64	include/bittypes.h	131;"	d
+PRIu64	include/bittypes.h	133;"	d
+PRIx64	include/bittypes.h	123;"	d
+PRIx64	include/bittypes.h	125;"	d
+PROTO_UNDEF	include/pcap/namedb.h	78;"	d
+PWAN_ADAPTER	include/Packet32.h	/^typedef WAN_ADAPTER *PWAN_ADAPTER; \/\/\/< Describes an opened wan (dialup, VPN...) network adapter using the NetMon API$/;"	t
+Packet_ALIGNMENT	include/Packet32.h	72;"	d
+Packet_WORDALIGN	include/Packet32.h	74;"	d
+RPCAP_HOSTLIST_SIZE	include/remote-ext.h	399;"	d
+RPCAP_RMTAUTH_NULL	include/remote-ext.h	304;"	d
+RPCAP_RMTAUTH_PWD	include/remote-ext.h	315;"	d
+ReadEvent	include/Packet32.h	/^	HANDLE ReadEvent;			\/\/\/< A notification event associated with the read calls on the adapter.$/;"	m	struct:_ADAPTER
+ReadTimeOut	include/Packet32.h	/^	UINT ReadTimeOut;			\/\/\/< \\internal The amount of time after which a read on the driver will be released and $/;"	m	struct:_ADAPTER
+Rma_ParseSourceAndDestIpPort	nic_stat.cpp	/^static int Rma_ParseSourceAndDestIpPort(u_char *p_frame_packet,$/;"	f	file:
+SIZEOF_CHAR	include/pcap-stdinc.h	34;"	d
+SIZEOF_INT	include/pcap-stdinc.h	36;"	d
+SIZEOF_LONG_LONG	include/pcap-stdinc.h	38;"	d
+SIZEOF_SHORT	include/pcap-stdinc.h	35;"	d
+SLL_ADDRLEN	include/pcap/sll.h	83;"	d
+SLL_HDR_LEN	include/pcap/sll.h	82;"	d
+SNAP_LEN	nic_stat.cpp	19;"	d	file:
+SOCKET	include/pcap/pcap.h	62;"	d
+SOCKET	include/pcap/pcap.h	64;"	d
+SRCS	Makefile	/^SRCS = nic_stat.cpp$/;"	m
+SubnetMask	include/Packet32.h	/^	struct sockaddr_storage SubnetMask;	\/\/\/< Netmask for that address.$/;"	m	struct:npf_if_addr	typeref:struct:npf_if_addr::sockaddr_storage
+SymbolicLink	include/Packet32.h	/^	CHAR  SymbolicLink[MAX_LINK_NAME_LENGTH]; \/\/\/< \\internal A string containing the name of the network adapter currently opened.$/;"	m	struct:_ADAPTER
+URB_BULK	include/pcap/usb.h	46;"	d
+URB_COMPLETE	include/pcap/usb.h	52;"	d
+URB_CONTROL	include/pcap/usb.h	45;"	d
+URB_ERROR	include/pcap/usb.h	53;"	d
+URB_INTERRUPT	include/pcap/usb.h	44;"	d
+URB_ISOCHRONOUS	include/pcap/usb.h	43;"	d
+URB_SUBMIT	include/pcap/usb.h	51;"	d
+URB_TRANSFER_IN	include/pcap/usb.h	42;"	d
+VLAN_TAG_LEN	include/pcap/vlan.h	44;"	d
+WAN_ADAPTER	include/Packet32.h	/^typedef struct WAN_ADAPTER_INT WAN_ADAPTER; \/\/\/< Describes an opened wan (dialup, VPN...) network adapter using the NetMon API$/;"	t	typeref:struct:WAN_ADAPTER_INT
+_ADAPTER	include/Packet32.h	/^typedef struct _ADAPTER  { $/;"	s
+_BITTYPES_H	include/bittypes.h	30;"	d
+_INTPTR_T_DEFINED	include/pcap-stdinc.h	90;"	d
+_PACKET	include/Packet32.h	/^typedef struct _PACKET {  $/;"	s
+_PACKET_OID_DATA	include/Packet32.h	/^struct _PACKET_OID_DATA {$/;"	s
+_PCAP_BLUETOOTH_STRUCTS_H__	include/pcap/bluetooth.h	37;"	d
+_PCAP_USB_STRUCTS_H__	include/pcap/usb.h	37;"	d
+_UINTPTR_T_DEFINED	include/pcap-stdinc.h	81;"	d
+_WINSOCKAPI_	include/pcap-stdinc.h	47;"	d
+__PACKET32	include/Packet32.h	46;"	d
+__REMOTE_EXT_H__	include/remote-ext.h	35;"	d
+__SOCKADDR_COMMON	include/ip6_misc.h	68;"	d
+__WIN32_EXTENSIONS_H__	include/Win32-Extensions.h	35;"	d
+_pcap_bluetooth_h4_header	include/pcap/bluetooth.h	/^typedef struct _pcap_bluetooth_h4_header {$/;"	s
+_usb_header	include/pcap/usb.h	/^typedef struct _usb_header {$/;"	s
+_usb_setup	include/pcap/usb.h	/^typedef struct _usb_setup {$/;"	s
+addr	include/pcap/namedb.h	/^	u_char addr[6];$/;"	m	struct:pcap_etherent
+addr	include/pcap/pcap.h	/^	struct sockaddr *addr;		\/* address *\/$/;"	m	struct:pcap_addr	typeref:struct:pcap_addr::sockaddr
+addresses	include/pcap/pcap.h	/^	struct pcap_addr *addresses;$/;"	m	struct:pcap_if	typeref:struct:pcap_if::pcap_addr
+addrinfo	include/ip6_misc.h	/^struct addrinfo {$/;"	s
+ai_addr	include/ip6_misc.h	/^	struct sockaddr *ai_addr;	\/* binary address *\/$/;"	m	struct:addrinfo	typeref:struct:addrinfo::sockaddr
+ai_addrlen	include/ip6_misc.h	/^	size_t	ai_addrlen;	\/* length of ai_addr *\/$/;"	m	struct:addrinfo
+ai_canonname	include/ip6_misc.h	/^	char	*ai_canonname;	\/* canonical name for hostname *\/$/;"	m	struct:addrinfo
+ai_family	include/ip6_misc.h	/^	int	ai_family;	\/* PF_xxx *\/$/;"	m	struct:addrinfo
+ai_flags	include/ip6_misc.h	/^	int	ai_flags;	\/* AI_PASSIVE, AI_CANONNAME *\/$/;"	m	struct:addrinfo
+ai_next	include/ip6_misc.h	/^	struct addrinfo *ai_next;	\/* next structure in linked list *\/$/;"	m	struct:addrinfo	typeref:struct:addrinfo::addrinfo
+ai_protocol	include/ip6_misc.h	/^	int	ai_protocol;	\/* 0 or IPPROTO_xxx for IPv4 and IPv6 *\/$/;"	m	struct:addrinfo
+ai_socktype	include/ip6_misc.h	/^	int	ai_socktype;	\/* SOCK_xxx *\/$/;"	m	struct:addrinfo
+bIoComplete	include/Packet32.h	/^	BOOLEAN      bIoComplete;	\/\/\/< \\deprecated Still present for compatibility with old applications.$/;"	m	struct:_PACKET
+bRequest	include/pcap/usb.h	/^	u_int8_t bRequest;$/;"	m	struct:_usb_setup
+bf_insns	include/Packet32.h	/^	struct bpf_insn *bf_insns;	\/\/\/< A pointer to the first instruction of the program.$/;"	m	struct:bpf_program	typeref:struct:bpf_program::bpf_insn
+bf_insns	include/pcap/bpf.h	/^	struct bpf_insn *bf_insns;$/;"	m	struct:bpf_program	typeref:struct:bpf_program::bpf_insn
+bf_len	include/Packet32.h	/^	UINT bf_len;				\/\/\/< Indicates the number of instructions of the program, i.e. the number of struct bpf_insn that will follow.$/;"	m	struct:bpf_program
+bf_len	include/pcap/bpf.h	/^	u_int bf_len;$/;"	m	struct:bpf_program
+bh_caplen	include/Packet32.h	/^	UINT	bh_caplen;			\/\/\/< Length of captured portion. The captured portion <b>can be different<\/b>$/;"	m	struct:bpf_hdr
+bh_datalen	include/Packet32.h	/^	UINT	bh_datalen;			\/\/\/< Original length of packet$/;"	m	struct:bpf_hdr
+bh_hdrlen	include/Packet32.h	/^	USHORT		bh_hdrlen;		\/\/\/< Length of bpf header (this struct plus alignment padding). In some cases,$/;"	m	struct:bpf_hdr
+bh_tstamp	include/Packet32.h	/^	struct timeval	bh_tstamp;	\/\/\/< The timestamp associated with the captured packet. $/;"	m	struct:bpf_hdr	typeref:struct:bpf_hdr::timeval
+bmRequestType	include/pcap/usb.h	/^	u_int8_t bmRequestType;$/;"	m	struct:_usb_setup
+bpf_hdr	include/Packet32.h	/^struct bpf_hdr $/;"	s
+bpf_insn	include/Packet32.h	/^struct bpf_insn $/;"	s
+bpf_insn	include/pcap/bpf.h	/^struct bpf_insn {$/;"	s
+bpf_int32	include/pcap/bpf.h	/^typedef	int bpf_int32;$/;"	t
+bpf_int32	include/pcap/bpf.h	/^typedef long          bpf_int32;$/;"	t
+bpf_int32	include/pcap/pcap.h	/^typedef	int bpf_int32;$/;"	t
+bpf_program	include/Packet32.h	/^struct bpf_program $/;"	s
+bpf_program	include/pcap/bpf.h	/^struct bpf_program {$/;"	s
+bpf_stat	include/Packet32.h	/^struct bpf_stat $/;"	s
+bpf_u_int32	include/pcap/bpf.h	/^typedef	u_int bpf_u_int32;$/;"	t
+bpf_u_int32	include/pcap/bpf.h	/^typedef unsigned long bpf_u_int32;$/;"	t
+bpf_u_int32	include/pcap/pcap.h	/^typedef	u_int bpf_u_int32;$/;"	t
+bpf_version	include/pcap/bpf.h	/^struct bpf_version {$/;"	s
+broadaddr	include/pcap/pcap.h	/^	struct sockaddr *broadaddr;	\/* broadcast address for that address *\/$/;"	m	struct:pcap_addr	typeref:struct:pcap_addr::sockaddr
+bs_capt	include/Packet32.h	/^	UINT bs_capt;		\/\/\/< number of packets that pass the filter, find place in the kernel buffer and$/;"	m	struct:bpf_stat
+bs_drop	include/Packet32.h	/^	UINT bs_drop;		\/\/\/< number of packets that the driver lost from the beginning of a capture. $/;"	m	struct:bpf_stat
+bs_recv	include/Packet32.h	/^	UINT bs_recv;		\/\/\/< Number of packets that the driver received from the network adapter $/;"	m	struct:bpf_stat
+buffer	include/Win32-Extensions.h	/^	char *buffer;		\/\/\/< Buffer containing the packets to be sent.$/;"	m	struct:pcap_send_queue
+bus_id	include/pcap/usb.h	/^	u_int16_t bus_id;$/;"	m	struct:_usb_header
+bv_major	include/pcap/bpf.h	/^	u_short bv_major;$/;"	m	struct:bpf_version
+bv_minor	include/pcap/bpf.h	/^	u_short bv_minor;$/;"	m	struct:bpf_version
+caddr_t	include/pcap-stdinc.h	61;"	d
+cap_pkg_num	nic_stat.cpp	/^	long long cap_pkg_num;$/;"	m	struct:Nic_Info	file:
+caplen	include/Packet32.h	/^    UINT			caplen;		\/\/\/< Length of captured portion. The captured portion can smaller than the $/;"	m	struct:dump_bpf_hdr
+caplen	include/pcap/pcap.h	/^	bpf_u_int32 caplen;	\/* length of portion present *\/$/;"	m	struct:pcap_pkthdr
+capture_packet_callback	nic_stat.cpp	/^static void capture_packet_callback(u_char *argument,const struct pcap_pkthdr *packet_header,const u_char *packet_content)$/;"	f	file:
+close_all_dev	nic_stat.cpp	/^int close_all_dev()$/;"	f
+code	include/Packet32.h	/^	USHORT	code;		\/\/\/< Instruction type and addressing mode.$/;"	m	struct:bpf_insn
+code	include/pcap/bpf.h	/^	u_short	code;$/;"	m	struct:bpf_insn
+collisions	include/pcap/pcap.h	/^       u_long  collisions;$/;"	m	struct:pcap_stat_ex
+data_flag	include/pcap/usb.h	/^	char data_flag; \/*if !=0 no urb data is present*\/$/;"	m	struct:_usb_header
+data_len	include/pcap/usb.h	/^	u_int32_t data_len; \/* amount of urb data really present in this event*\/$/;"	m	struct:_usb_header
+datalink	nic_stat.cpp	/^    int datalink;$/;"	m	struct:Nic_Info	file:
+description	include/pcap/pcap.h	/^	char *description;	\/* textual description of interface, or NULL *\/$/;"	m	struct:pcap_if
+device_address	include/pcap/usb.h	/^	u_int8_t device_address;$/;"	m	struct:_usb_header
+direction	include/pcap/bluetooth.h	/^	u_int32_t direction; \/* if first bit is set direction is incoming *\/$/;"	m	struct:_pcap_bluetooth_h4_header
+dstaddr	include/pcap/pcap.h	/^	struct sockaddr *dstaddr;	\/* P2P destination address for that address *\/$/;"	m	struct:pcap_addr	typeref:struct:pcap_addr::sockaddr
+dump_bpf_hdr	include/Packet32.h	/^struct dump_bpf_hdr{$/;"	s
+enable	nic_stat.cpp	/^    bool enable;$/;"	m	struct:Nic_Info	file:
+endpoint_number	include/pcap/usb.h	/^	u_int8_t endpoint_number;$/;"	m	struct:_usb_header
+errbuf	nic_stat.cpp	/^char errbuf[PCAP_ERRBUF_SIZE];$/;"	v
+event_type	include/pcap/usb.h	/^	u_int8_t event_type;$/;"	m	struct:_usb_header
+find_all_dev	nic_stat.cpp	/^int find_all_dev()$/;"	f
+flags	include/pcap/pcap.h	/^	bpf_u_int32 flags;	\/* PCAP_IF_ interface flags *\/$/;"	m	struct:pcap_if
+hEvent	include/Packet32.h	/^	HANDLE       hEvent;		\/\/\/< \\deprecated Still present for compatibility with old applications.$/;"	m	struct:_PACKET
+hFile	include/Packet32.h	/^	HANDLE hFile;				\/\/\/< \\internal Handle to an open instance of the NPF driver.$/;"	m	struct:_ADAPTER
+id	include/pcap/usb.h	/^	u_int64_t id;$/;"	m	struct:_usb_header
+in6_addr	include/ip6_misc.h	/^struct in6_addr$/;"	s
+in6_u	include/ip6_misc.h	/^      } in6_u;$/;"	m	struct:in6_addr	typeref:union:in6_addr::__anon1
+inline	include/pcap-stdinc.h	69;"	d
+int16_t	include/bittypes.h	/^typedef signed char int16_t;$/;"	t
+int16_t	include/bittypes.h	/^typedef signed int int16_t;$/;"	t
+int16_t	include/bittypes.h	/^typedef signed short int16_t;$/;"	t
+int32_t	include/bittypes.h	/^typedef signed int int32_t;$/;"	t
+int32_t	include/bittypes.h	/^typedef signed long int32_t;$/;"	t
+int32_t	include/bittypes.h	/^typedef signed short int32_t;$/;"	t
+int64_t	include/bittypes.h	/^typedef _int64 int64_t;$/;"	t
+int64_t	include/bittypes.h	/^typedef long long int64_t;$/;"	t
+int8_t	include/bittypes.h	/^typedef signed char int8_t;$/;"	t
+int8_t	include/bittypes.h	/^typedef signed int int8_t;$/;"	t
+intptr_t	include/pcap-stdinc.h	/^typedef _W64 int   intptr_t;$/;"	t
+intptr_t	include/pcap-stdinc.h	/^typedef __int64    intptr_t;$/;"	t
+ip6_flow	include/ip6_misc.h	95;"	d
+ip6_hlim	include/ip6_misc.h	98;"	d
+ip6_hops	include/ip6_misc.h	99;"	d
+ip6_nxt	include/ip6_misc.h	97;"	d
+ip6_plen	include/ip6_misc.h	96;"	d
+ip6_vfc	include/ip6_misc.h	94;"	d
+jf	include/Packet32.h	/^	UCHAR 	jf;			\/\/\/< Jump if false$/;"	m	struct:bpf_insn
+jf	include/pcap/bpf.h	/^	u_char 	jf;$/;"	m	struct:bpf_insn
+jt	include/Packet32.h	/^	UCHAR 	jt;			\/\/\/< Jump if true$/;"	m	struct:bpf_insn
+jt	include/pcap/bpf.h	/^	u_char 	jt;$/;"	m	struct:bpf_insn
+k	include/Packet32.h	/^	int k;				\/\/\/< Generic field used for various purposes.$/;"	m	struct:bpf_insn
+k	include/pcap/bpf.h	/^	bpf_u_int32 k;$/;"	m	struct:bpf_insn
+len	include/Packet32.h	/^    UINT			len;		\/\/\/< Length of the original packet (off wire).$/;"	m	struct:dump_bpf_hdr
+len	include/Win32-Extensions.h	/^	u_int len;			\/\/\/< Current size of the queue, in bytes.$/;"	m	struct:pcap_send_queue
+len	include/pcap/pcap.h	/^	bpf_u_int32 len;	\/* length this packet (off wire) *\/$/;"	m	struct:pcap_pkthdr
+lib_pcap_namedb_h	include/pcap/namedb.h	37;"	d
+lib_pcap_pcap_h	include/pcap/pcap.h	38;"	d
+lib_pcap_sll_h	include/pcap/sll.h	77;"	d
+lib_pcap_vlan_h	include/pcap/vlan.h	37;"	d
+linktype	include/pcap/pcap.h	/^	bpf_u_int32 linktype;	\/* data link type (LINKTYPE_*) *\/$/;"	m	struct:pcap_file_header
+magic	include/pcap/pcap.h	/^	bpf_u_int32 magic;$/;"	m	struct:pcap_file_header
+main	nic_stat.cpp	/^int main(int argc, char* argv[])$/;"	f
+maxlen	include/Win32-Extensions.h	/^	u_int maxlen;		\/\/\/< Maximum size of the the queue, in bytes. This variable contains the size of the buffer field.$/;"	m	struct:pcap_send_queue
+method	include/remote-ext.h	/^	int method;$/;"	m	struct:pcap_samp
+multicast	include/pcap/pcap.h	/^       u_long  multicast;         \/* multicast packets received   *\/$/;"	m	struct:pcap_stat_ex
+name	include/pcap/namedb.h	/^	char name[122];$/;"	m	struct:pcap_etherent
+name	include/pcap/pcap.h	/^	char *name;		\/* name to hand to "pcap_open_live()" *\/$/;"	m	struct:pcap_if
+nd_rd_cksum	include/ip6_misc.h	103;"	d
+nd_rd_code	include/ip6_misc.h	102;"	d
+nd_rd_reserved	include/ip6_misc.h	104;"	d
+nd_rd_type	include/ip6_misc.h	101;"	d
+netmask	include/pcap/pcap.h	/^	struct sockaddr *netmask;	\/* netmask for that address *\/$/;"	m	struct:pcap_addr	typeref:struct:pcap_addr::sockaddr
+next	include/pcap/pcap.h	/^	struct pcap_addr *next;$/;"	m	struct:pcap_addr	typeref:struct:pcap_addr::pcap_addr
+next	include/pcap/pcap.h	/^	struct pcap_if *next;$/;"	m	struct:pcap_if	typeref:struct:pcap_if::pcap_if
+nic_info	nic_stat.cpp	/^}nic_info;$/;"	t	typeref:struct:Nic_Info	file:
+nic_name	nic_stat.cpp	/^	char nic_name[64];$/;"	m	struct:Nic_Info	file:
+npf_if_addr	include/Packet32.h	/^typedef struct npf_if_addr {$/;"	s
+npf_if_addr	include/Packet32.h	/^}npf_if_addr;$/;"	t	typeref:struct:npf_if_addr
+open_all_dev	nic_stat.cpp	/^int open_all_dev()$/;"	f
+pDagCard	include/Packet32.h	/^	dagc_t *pDagCard;			\/\/\/< Pointer to the dagc API adapter descriptor for this adapter$/;"	m	struct:_ADAPTER
+pWanAdapter	include/Packet32.h	/^	PWAN_ADAPTER pWanAdapter;$/;"	m	struct:_ADAPTER
+packet_buffer	nic_stat.cpp	/^unsigned char* packet_buffer = NULL;$/;"	v
+password	include/remote-ext.h	/^	char *password;$/;"	m	struct:pcap_rmtauth
+pcap_addr	include/pcap/pcap.h	/^struct pcap_addr {$/;"	s
+pcap_addr_t	include/pcap/pcap.h	/^typedef struct pcap_addr pcap_addr_t;$/;"	t	typeref:struct:pcap_addr
+pcap_bluetooth_h4_header	include/pcap/bluetooth.h	/^} pcap_bluetooth_h4_header;$/;"	t	typeref:struct:_pcap_bluetooth_h4_header
+pcap_direction_t	include/pcap/pcap.h	/^} pcap_direction_t;$/;"	t	typeref:enum:__anon2
+pcap_dumper_t	include/pcap/pcap.h	/^typedef struct pcap_dumper pcap_dumper_t;$/;"	t	typeref:struct:pcap_dumper
+pcap_etherent	include/pcap/namedb.h	/^struct pcap_etherent {$/;"	s
+pcap_file_header	include/pcap/pcap.h	/^struct pcap_file_header {$/;"	s
+pcap_fopen_offline	include/pcap/pcap.h	289;"	d
+pcap_handle	nic_stat.cpp	/^    pcap_t *pcap_handle;$/;"	m	struct:Nic_Info	file:
+pcap_handler	include/pcap/pcap.h	/^typedef void (*pcap_handler)(u_char *, const struct pcap_pkthdr *,$/;"	t
+pcap_if	include/pcap/pcap.h	/^struct pcap_if {$/;"	s
+pcap_if_t	include/pcap/pcap.h	/^typedef struct pcap_if pcap_if_t;$/;"	t	typeref:struct:pcap_if
+pcap_pkthdr	include/pcap/pcap.h	/^struct pcap_pkthdr {$/;"	s
+pcap_rmtauth	include/remote-ext.h	/^struct pcap_rmtauth$/;"	s
+pcap_samp	include/remote-ext.h	/^struct pcap_samp$/;"	s
+pcap_send_queue	include/Win32-Extensions.h	/^struct pcap_send_queue$/;"	s
+pcap_send_queue	include/Win32-Extensions.h	/^typedef struct pcap_send_queue pcap_send_queue;$/;"	t	typeref:struct:pcap_send_queue
+pcap_stat	include/pcap/pcap.h	/^struct pcap_stat {$/;"	s
+pcap_stat_ex	include/pcap/pcap.h	/^struct pcap_stat_ex {$/;"	s
+pcap_t	include/pcap/pcap.h	/^typedef struct pcap pcap_t;$/;"	t	typeref:struct:pcap
+pcap_usb_header	include/pcap/usb.h	/^} pcap_usb_header;$/;"	t	typeref:struct:_usb_header
+pcap_usb_setup	include/pcap/usb.h	/^} pcap_usb_setup;$/;"	t	typeref:struct:_usb_setup
+ps_capt	include/pcap/pcap.h	/^	u_int ps_capt;		\/* number of packets that are received by the application; please get rid off the Win32 ifdef *\/$/;"	m	struct:pcap_stat
+ps_drop	include/pcap/pcap.h	/^	u_int ps_drop;		\/* number of packets dropped *\/$/;"	m	struct:pcap_stat
+ps_ifdrop	include/Packet32.h	/^	UINT ps_ifdrop;		\/\/\/< drops by interface. XXX not yet supported$/;"	m	struct:bpf_stat
+ps_ifdrop	include/pcap/pcap.h	/^	u_int ps_ifdrop;	\/* drops by interface XXX not yet supported *\/$/;"	m	struct:pcap_stat
+ps_netdrop	include/pcap/pcap.h	/^	u_int ps_netdrop;	\/* number of packets lost on the network *\/$/;"	m	struct:pcap_stat
+ps_recv	include/pcap/pcap.h	/^	u_int ps_recv;		\/* number of packets received *\/$/;"	m	struct:pcap_stat
+ps_sent	include/pcap/pcap.h	/^	u_int ps_sent;		\/* number of packets sent by the server on the network *\/$/;"	m	struct:pcap_stat
+rx_bytes	include/pcap/pcap.h	/^       u_long  rx_bytes;          \/* total bytes received         *\/$/;"	m	struct:pcap_stat_ex
+rx_crc_errors	include/pcap/pcap.h	/^       u_long  rx_crc_errors;     \/* recv'd pkt with crc error    *\/$/;"	m	struct:pcap_stat_ex
+rx_dropped	include/pcap/pcap.h	/^       u_long  rx_dropped;        \/* no space in Rx buffers       *\/$/;"	m	struct:pcap_stat_ex
+rx_errors	include/pcap/pcap.h	/^       u_long  rx_errors;         \/* bad packets received         *\/$/;"	m	struct:pcap_stat_ex
+rx_fifo_errors	include/pcap/pcap.h	/^       u_long  rx_fifo_errors;    \/* recv'r fifo overrun          *\/$/;"	m	struct:pcap_stat_ex
+rx_frame_errors	include/pcap/pcap.h	/^       u_long  rx_frame_errors;   \/* recv'd frame alignment error *\/$/;"	m	struct:pcap_stat_ex
+rx_length_errors	include/pcap/pcap.h	/^       u_long  rx_length_errors;$/;"	m	struct:pcap_stat_ex
+rx_missed_errors	include/pcap/pcap.h	/^       u_long  rx_missed_errors;  \/* recv'r missed packet         *\/$/;"	m	struct:pcap_stat_ex
+rx_over_errors	include/pcap/pcap.h	/^       u_long  rx_over_errors;    \/* receiver ring buff overflow  *\/$/;"	m	struct:pcap_stat_ex
+rx_packets	include/pcap/pcap.h	/^       u_long  rx_packets;        \/* total packets received       *\/$/;"	m	struct:pcap_stat_ex
+s6_addr	include/ip6_misc.h	50;"	d
+s6_addr16	include/ip6_misc.h	51;"	d
+s6_addr32	include/ip6_misc.h	52;"	d
+s6_addr64	include/ip6_misc.h	53;"	d
+sa_family_t	include/ip6_misc.h	/^typedef unsigned short	sa_family_t;$/;"	t
+setup	include/pcap/usb.h	/^	pcap_usb_setup setup;$/;"	m	struct:_usb_header
+setup_flag	include/pcap/usb.h	/^	char setup_flag;\/*if !=0 the urb setup header is not present*\/$/;"	m	struct:_usb_header
+sigfigs	include/pcap/pcap.h	/^	bpf_u_int32 sigfigs;	\/* accuracy of timestamps *\/$/;"	m	struct:pcap_file_header
+sin6_addr	include/ip6_misc.h	/^    struct in6_addr sin6_addr;	\/* IPv6 address *\/$/;"	m	struct:sockaddr_in6	typeref:struct:sockaddr_in6::in6_addr
+sin6_flowinfo	include/ip6_misc.h	/^    u_int32_t sin6_flowinfo;	\/* IPv6 flow information *\/$/;"	m	struct:sockaddr_in6
+sin6_port	include/ip6_misc.h	/^    u_int16_t sin6_port;		\/* Transport layer port # *\/$/;"	m	struct:sockaddr_in6
+sll_addr	include/pcap/sll.h	/^	u_int8_t sll_addr[SLL_ADDRLEN];	\/* link-layer address *\/$/;"	m	struct:sll_header
+sll_halen	include/pcap/sll.h	/^	u_int16_t sll_halen;		\/* link-layer address length *\/$/;"	m	struct:sll_header
+sll_hatype	include/pcap/sll.h	/^	u_int16_t sll_hatype;		\/* link-layer address type *\/$/;"	m	struct:sll_header
+sll_header	include/pcap/sll.h	/^struct sll_header {$/;"	s
+sll_pkttype	include/pcap/sll.h	/^	u_int16_t sll_pkttype;		\/* packet type *\/$/;"	m	struct:sll_header
+sll_protocol	include/pcap/sll.h	/^	u_int16_t sll_protocol;		\/* protocol *\/$/;"	m	struct:sll_header
+snaplen	include/pcap/pcap.h	/^	bpf_u_int32 snaplen;	\/* max length saved portion of each pkt *\/$/;"	m	struct:pcap_file_header
+snprintf	include/pcap-stdinc.h	64;"	d
+sockaddr_in6	include/ip6_misc.h	/^struct sockaddr_in6$/;"	s
+status	include/pcap/usb.h	/^	int32_t status;$/;"	m	struct:_usb_header
+strdup	include/pcap-stdinc.h	66;"	d
+tcp_num	nic_stat.cpp	/^	long long tcp_num;$/;"	m	struct:Nic_Info	file:
+thiszone	include/pcap/pcap.h	/^	bpf_int32 thiszone;	\/* gmt to local correction *\/$/;"	m	struct:pcap_file_header
+transfer_type	include/pcap/usb.h	/^	u_int8_t transfer_type;$/;"	m	struct:_usb_header
+ts	include/Packet32.h	/^    struct timeval	ts;			\/\/\/< Time stamp of the packet$/;"	m	struct:dump_bpf_hdr	typeref:struct:dump_bpf_hdr::timeval
+ts	include/pcap/pcap.h	/^	struct timeval ts;	\/* time stamp *\/$/;"	m	struct:pcap_pkthdr	typeref:struct:pcap_pkthdr::timeval
+ts_sec	include/pcap/usb.h	/^	int64_t ts_sec;$/;"	m	struct:_usb_header
+ts_usec	include/pcap/usb.h	/^	int32_t ts_usec;$/;"	m	struct:_usb_header
+tx_aborted_errors	include/pcap/pcap.h	/^       u_long  tx_aborted_errors;$/;"	m	struct:pcap_stat_ex
+tx_bytes	include/pcap/pcap.h	/^       u_long  tx_bytes;          \/* total bytes transmitted      *\/$/;"	m	struct:pcap_stat_ex
+tx_carrier_errors	include/pcap/pcap.h	/^       u_long  tx_carrier_errors;$/;"	m	struct:pcap_stat_ex
+tx_dropped	include/pcap/pcap.h	/^       u_long  tx_dropped;        \/* no space available for Tx    *\/$/;"	m	struct:pcap_stat_ex
+tx_errors	include/pcap/pcap.h	/^       u_long  tx_errors;         \/* packet transmit problems     *\/$/;"	m	struct:pcap_stat_ex
+tx_fifo_errors	include/pcap/pcap.h	/^       u_long  tx_fifo_errors;$/;"	m	struct:pcap_stat_ex
+tx_heartbeat_errors	include/pcap/pcap.h	/^       u_long  tx_heartbeat_errors;$/;"	m	struct:pcap_stat_ex
+tx_packets	include/pcap/pcap.h	/^       u_long  tx_packets;        \/* total packets transmitted    *\/$/;"	m	struct:pcap_stat_ex
+tx_window_errors	include/pcap/pcap.h	/^       u_long  tx_window_errors;$/;"	m	struct:pcap_stat_ex
+type	include/remote-ext.h	/^	int type;$/;"	m	struct:pcap_rmtauth
+u6_addr16	include/ip6_misc.h	/^	u_int16_t	u6_addr16[8];$/;"	m	union:in6_addr::__anon1
+u6_addr32	include/ip6_misc.h	/^	u_int32_t	u6_addr32[4];$/;"	m	union:in6_addr::__anon1
+u6_addr8	include/ip6_misc.h	/^	u_int8_t		u6_addr8[16];$/;"	m	union:in6_addr::__anon1
+u_int16_t	include/bittypes.h	/^typedef unsigned char u_int16_t;$/;"	t
+u_int16_t	include/bittypes.h	/^typedef unsigned int u_int16_t;$/;"	t
+u_int16_t	include/bittypes.h	/^typedef unsigned short u_int16_t;$/;"	t
+u_int32_t	include/bittypes.h	/^typedef unsigned int u_int32_t;$/;"	t
+u_int32_t	include/bittypes.h	/^typedef unsigned long u_int32_t;$/;"	t
+u_int32_t	include/bittypes.h	/^typedef unsigned short u_int32_t;$/;"	t
+u_int64_t	include/bittypes.h	/^typedef unsigned _int64 u_int64_t;$/;"	t
+u_int64_t	include/bittypes.h	/^typedef unsigned int u_int64_t;$/;"	t
+u_int64_t	include/bittypes.h	/^typedef unsigned long long u_int64_t;$/;"	t
+u_int64_t	include/bittypes.h	/^typedef unsigned long u_int64_t;$/;"	t
+u_int64_t	include/bittypes.h	/^typedef unsigned short u_int64_t;$/;"	t
+u_int8_t	include/bittypes.h	/^typedef unsigned char u_int8_t;$/;"	t
+u_int8_t	include/bittypes.h	/^typedef unsigned int u_int8_t;$/;"	t
+udp_num	nic_stat.cpp	/^	long long udp_num;$/;"	m	struct:Nic_Info	file:
+uintptr_t	include/pcap-stdinc.h	/^typedef _W64 unsigned int   uintptr_t;$/;"	t
+uintptr_t	include/pcap-stdinc.h	/^typedef unsigned __int64    uintptr_t;$/;"	t
+ulBytesReceived	include/Packet32.h	/^	DWORD        ulBytesReceived;	\/\/\/< Number of valid bytes present in the buffer, i.e. amount of data$/;"	m	struct:_PACKET
+urb_len	include/pcap/usb.h	/^	u_int32_t urb_len;$/;"	m	struct:_usb_header
+username	include/remote-ext.h	/^	char *username;$/;"	m	struct:pcap_rmtauth
+value	include/remote-ext.h	/^	int value;$/;"	m	struct:pcap_samp
+version_major	include/pcap/pcap.h	/^	u_short version_major;$/;"	m	struct:pcap_file_header
+version_minor	include/pcap/pcap.h	/^	u_short version_minor;$/;"	m	struct:pcap_file_header
+vlan_tag	include/pcap/vlan.h	/^struct vlan_tag {$/;"	s
+vlan_tci	include/pcap/vlan.h	/^	u_int16_t	vlan_tci;		\/* VLAN TCI *\/$/;"	m	struct:vlan_tag
+vlan_tpid	include/pcap/vlan.h	/^	u_int16_t	vlan_tpid;		\/* ETH_P_8021Q *\/$/;"	m	struct:vlan_tag
+vsnprintf	include/pcap-stdinc.h	65;"	d
+wIndex	include/pcap/usb.h	/^	u_int16_t wIndex;$/;"	m	struct:_usb_setup
+wLength	include/pcap/usb.h	/^	u_int16_t wLength;$/;"	m	struct:_usb_setup
+wValue	include/pcap/usb.h	/^	u_int16_t wValue;$/;"	m	struct:_usb_setup
