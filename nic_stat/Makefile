@@ -1,7 +1,7 @@
 CC = gcc
 CPP = g++
 CFLAGS	= -DUNIX -D_THREAD_SAFE -Iinclude -DHAVE_SELECT
-LIBFLAGS = -lpthread -lrt -L./lib ./lib/libpcap.a ./lib/libpfring.a ./lib/libnuma.a
+LIBFLAGS = -lpthread -L/usr/lib64/mysql -lmysqlclient -lrt -L./lib ./lib/libpcap.a ./lib/libpfring.a ./lib/libnuma.a
 
 SRCS = nic_stat.cpp
 

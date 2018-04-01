@@ -5,6 +5,8 @@
 #include <ctype.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <pthread.h>
+#include "mysql/mysql.h"
 
 #include "pcap.h"
 
@@ -12,9 +14,13 @@ typedef struct Nic_Info{
     pcap_t *pcap_handle;
     int datalink;
 	char nic_name[64];
-	long long cap_pkg_num;
-	long long tcp_num;
-	long long udp_num;
+	long int cap_byte_num;
+    long int cap_byte_per;
+	long int cap_pkg_num;
+	long int tcp_num;
+	long int udp_num;
+    int death_of_ping_flag;
+    int land_flag;
     bool enable;
 }nic_info;
 
@@ -24,18 +30,31 @@ typedef struct Nic_Info{
 nic_info Nic_Mgr[16];
 char errbuf[PCAP_ERRBUF_SIZE];
 unsigned char* packet_buffer = NULL;
+int INDEX=0;
 static char filter[1024] = {0};
 static int use_filter = 0;
+static int show_traffic = 0;
+static int defense_mode = 0;
 static char use_dev[64];
+pthread_mutex_t data_access_mutex = PTHREAD_MUTEX_INITIALIZER;
 ////////////////////////////////////////////////
 int find_all_dev();
 int open_all_dev();
 static void capture_packet_callback(u_char *argument,const struct pcap_pkthdr *packet_header,const u_char *packet_content);
 void process_packet(u_char* arg, const struct pcap_pkthdr* pkthdr, const u_char* packet);
 int close_all_dev();
+void* thread_sync_mysql(void* arg);
 
 void usage()
 {
+    printf("nic_stat: capture packets from nic eth1\n");
+    printf("\t-l : show available nic\n");
+    printf("\t-i : capture from nic\n");
+    printf("\t\teg:-i eth1 \n");
+    printf("\t-f : capture use filter \n");
+    printf("\t\teg:'tcp' or 'udp' or 'dst port 22' or 'src 192.168.31.130'\n");
+    printf("\t-v : show tips \n");
+    printf("\t-s : show traffic\n");
     return ;
 }
 
@@ -44,8 +63,9 @@ int main(int argc, char* argv[])
 	int ret = 0;
     int index = 0;
     int opt, list_dev;
+    pthread_t    id_thread;
 
-	while((opt=getopt(argc, argv, "lf:i:"))!=-1)
+	while((opt=getopt(argc, argv, "lsdvf:i:"))!=-1)
 	{
 		switch(opt)
 		{
@@ -61,19 +81,30 @@ int main(int argc, char* argv[])
 			case 'l':
                 list_dev = 1;
 				break;
+			case 's':
+                show_traffic = 1;
+				break;
+			case 'd':
+                defense_mode = 1;
+				break;
 			default:
 				usage();
 				return 0;
 		}
 	}	
+    if ( argc == 1 )
+    {
+        usage();
+		return 0;
+    }
 
 	memset(Nic_Mgr, 0x00, sizeof(nic_info) * 16 );
-    packet_buffer = (unsigned char*)malloc(64*1024);
-    if ( packet_buffer == NULL)
-    {
-        printf("malloc mem failed\n");
-        return 0;
-    }
+    //packet_buffer = (unsigned char*)malloc(64*1024);
+    //if ( packet_buffer == NULL)
+    //{
+    //    printf("malloc mem failed\n");
+    //    return 0;
+    //}
     if ( list_dev == 1)
     {
         //  找到所有的网卡并存储
@@ -84,29 +115,32 @@ int main(int argc, char* argv[])
     find_all_dev();
 	//  打开网卡设备 
 	open_all_dev();
-	//  开始抓包
+	
+    if ( pthread_create( &id_thread, NULL, thread_sync_mysql, NULL) )
+    {
+        printf("create thread failed\n");
+        exit(1);
+    }
+        
+    //  开始抓包
     while (1)
     {
-        if ( Nic_Mgr[index].pcap_handle != NULL)
+        if ( Nic_Mgr[INDEX].pcap_handle != NULL)
         {
-            pcap_dispatch(Nic_Mgr[index].pcap_handle, -1, capture_packet_callback, (u_char*)&index);
-            //pcap_dispatch(Nic_Mgr[index].pcap_handle, -1, process_packet, NULL);
+            pcap_dispatch(Nic_Mgr[INDEX].pcap_handle, -1, capture_packet_callback, (u_char*)&INDEX);
         }else{
             printf("no pcap_handle can be used\n");
             break;
         }
     }
-    // pcap_loop(Nic_Mgr[0].pcap_handle, -1, capture_packet_callback, NULL);
 
     close_all_dev();
 	return 0;
 }
 
-static int parse_ip_port(const u_char *p_frame_packet, u_int* src_ip, u_short *src_port, u_int* dst_ip, u_short *dst_port)
+static int parse_protocol(const u_char *p_frame_packet, int* proto, int* syn_flag)
 {
-    int ret = 0;
 	const u_char* p_ip_packet;
-	const u_char* p_ip;
 	const u_char* p_tcp_packet;
 	u_int ip_header_len;
     u_int cursor = 0;
@@ -124,40 +158,67 @@ static int parse_ip_port(const u_char *p_frame_packet, u_int* src_ip, u_short *s
             Type: 802.1Q Virtual LAN (0x8100),后面跟着2字节的VLan信息和2字节的type信息 
             这里假设type信息就是0x8000
         */
-        /* 先跳过2字节 */
         cursor = cursor + 2;
         memcpy(&eth_type_code,(u_char*)p_frame_packet+cursor,sizeof(u_short));
         eth_type_code = ntohs(eth_type_code);
         cursor = cursor + 2;
         p_ip_packet = p_frame_packet+cursor;
-        /* 
-            重要的防守逻辑：
-            理论上，可能会出现多次VLand，但不应该出现大量的VLan，因此这里设置一个防守逻辑：如果超过5次的VLan(20字节)则认为是不正确的TCPIP包 
-        */
+
         if(cursor>(14+20))
         {
-            protocol = 0;
+            *proto = 0;
+            *syn_flag = 0;
             return -1;
         }
     }
 
 	protocol = *(p_ip_packet+9);
-	if(protocol == 0x06 )
+	if(protocol == 0x06)
 	{
-        ret = 0;
-	}else if ( protocol == 0x11 )
+		*proto = 1;
+	}else if( protocol == 0x11 )
     {
-        ret = 10;
+        *proto = 2;
     }else{
-        return -1;
+        *proto = 0;
     }
+	
+    ip_header_len = (*p_ip_packet)&0x0f;
+	p_tcp_packet = p_ip_packet + (ip_header_len<<2);
     
+	control_field = *(p_tcp_packet+13);
+    if((control_field&0x12)==0x02)
+    {
+        // SYN
+        *syn_flag = 1;
+    }
+    else if((control_field&0x12)==0x12)
+    {
+        // SYN + ACK
+        *syn_flag = 2;
+    }else{
+        *syn_flag = 0;
+    }
+
+	return 0;
+}
+
+static int parse_ip_port(const u_char *p_frame_packet, u_int* src_ip, u_short *src_port, u_int* dst_ip, u_short *dst_port)
+{
+    int ret = 0;
+    const u_char* p_ip_packet;
+    const u_char* p_ip;
+    const u_char* p_tcp_packet;
+    u_int ip_header_len;
+    u_int cursor = 0;
+
+    cursor = cursor + 14;
+    p_ip_packet = p_frame_packet+cursor;
+
     /*解析出源ip*/
-    p_ip=p_ip_packet+12;
-    *src_ip = ntohl(*(u_int*)p_ip);
+    *src_ip = ntohl(*(u_int*)(p_ip_packet+12));
     /*解析出目的ip*/
-    p_ip=p_ip_packet+16;
-    *dst_ip = ntohl(*(u_int*)p_ip);
+    *dst_ip = ntohl(*(u_int*)(p_ip_packet+16));
 
     ip_header_len = (*p_ip_packet)&0x0f;
     p_tcp_packet = p_ip_packet + (ip_header_len<<2);
@@ -166,25 +227,7 @@ static int parse_ip_port(const u_char *p_frame_packet, u_int* src_ip, u_short *s
     /*解析出目的port*/
     *dst_port = ntohs(*(u_short*)(p_tcp_packet+2));
 
-    control_field = *(p_tcp_packet+13);
-
-    if((control_field&0x12)==0x02)
-    {// 设置了SYN,但没有设置ACK,说明这是一个创建连接的第一个通讯包
-        return ret + 1;
-    }
-    else if((control_field&0x12)==0x12)
-    {
-        // 设置了SYN,也设置了ACK,说明这是一个创建连接的第一个应答包
-        return ret + 2;
-    }
-    
-	return ret;
-}
-
-static int parse_ip_port(u_char *p_frame_packet)
-{
-    u_char* p_ip_packet;
-    
+    return 0;
 }
 
 void process_packet(u_char* arg, const struct pcap_pkthdr* pkthdr, const u_char* packet)
@@ -277,57 +320,113 @@ static void capture_packet_callback(u_char *argument,const struct pcap_pkthdr *p
     u_char str_src_ip[128]={0};
     u_char str_dst_ip[128]={0};
     int index = (int)*argument;
+    int proto = 0;
+    int syn_flag = 0;
     int parse_ret = 0;
-    
+
+    pthread_mutex_lock(&data_access_mutex);
+    Nic_Mgr[index].cap_pkg_num ++;
+    Nic_Mgr[index].cap_byte_num += packet_header->caplen;
+    Nic_Mgr[index].cap_byte_per += packet_header->caplen; 
+    pthread_mutex_unlock(&data_access_mutex);
+
     if ( Nic_Mgr[index].datalink == DLT_LINUX_SLL )
     {
-        memcpy(packet_buffer, packet_content + 2, packet_header->caplen - 2);
-        packet_current = packet_buffer;
+        packet_current = packet_buffer +2;
     }else{
-        memcpy(packet_buffer, packet_content, packet_header->caplen );
         packet_current = packet_buffer;
     }
 
-    parse_ret = parse_ip_port(packet_current, &src_ip, &src_port, &dst_ip, &dst_port);
-    if (parse_ret < 0)
+    if (parse_protocol(packet_current, &proto, &syn_flag) == -1)
     {
-        printf("capture_packet_callback parse failed, no matched packet,ret:%d\n",parse_ret);
         return;
+    }else{
+        if ( proto == 1 )
+            Nic_Mgr[index].tcp_num ++;
+        else if ( proto == 2 )
+            Nic_Mgr[index].udp_num ++;
     }
-    else
+
+    if ( defense_mode == 1 )
     {
-        nic_Ip2Str(src_ip, (u_char*)str_src_ip);
-        nic_Ip2Str(dst_ip, (u_char*)str_dst_ip);
-        printf("from_ip:%s,from_port=%u,to_ip=%s,to_port=%u\n", str_src_ip, src_port, str_dst_ip, dst_port);
+        // 防守模式 发现 land  和 death of ping 攻击，则输出显示
+        parse_ret = parse_ip_port(packet_current, &src_ip, &src_port, &dst_ip, &dst_port);
+        if (parse_ret < 0)
+        {
+            //printf("capture_packet_callback parse failed, no matched packet,ret:%d\n",parse_ret);
+            return;
+        }
+        else
+        {
+            if ( src_ip == dst_ip )
+            {
+                printf("capture_packet_callback find death_of_ping packet\n\n");
+                nic_Ip2Str(src_ip, (u_char*)str_src_ip);
+                nic_Ip2Str(dst_ip, (u_char*)str_dst_ip);
+                printf("from_ip:%s,from_port=%u,to_ip=%s,to_port=%u\n", str_src_ip, src_port, str_dst_ip, dst_port);
+            }
+        }
     }
-
     return;
+}
 
+void* thread_sync_mysql(void* arg)
+{
+    MYSQL *connection = NULL;
+    char sql[1024] = {0};
+    bool my_true = 1;
+    
+    if( (connection = mysql_init(NULL)) == NULL || mysql_options(connection, MYSQL_OPT_RECONNECT, &my_true) || mysql_options(connection, MYSQL_SET_CHARSET_NAME, "utf-8") ||
+        mysql_real_connect(connection, "127.0.0.1", "root", "1", "nic_stat", 3306, NULL, 0) == NULL)
+    {
+        connection = NULL;
+        printf("connect_to_dataserver failed\n");
+        exit(1);
+    }
+    
+    //  同步数据到mysql数据库中
+    while (1)
+    {
+        sleep(1);
+        memset(sql, 0x00, sizeof(sql));
+        pthread_mutex_lock(&data_access_mutex);
+        sprintf(sql, "insert into packet_detail (nic_name,rxpck_total,speed_byte_per,logtime,death_of_ping_flag,land_flag) values\
+                ('%s',%ld,%ld,SYSDATE(),%d,%d)", Nic_Mgr[INDEX].nic_name, Nic_Mgr[INDEX].cap_byte_num, Nic_Mgr[INDEX].cap_byte_per, \
+                Nic_Mgr[INDEX].death_of_ping_flag, Nic_Mgr[INDEX].land_flag);
+        if( mysql_query(connection, sql) != 0)
+		{
+			printf("exec sql failed \n");
+            exit(1);
+		}
+        Nic_Mgr[INDEX].cap_byte_per = 0;
+        pthread_mutex_unlock(&data_access_mutex);
+    }
+    
 }
 
 int open_all_dev()
 {
-    int index = 0;
+    //int index = 0;
     int promisc = 1;
     struct bpf_program bpf_filter;
 
-    Nic_Mgr[index].pcap_handle = pcap_open_live((const char*)Nic_Mgr[index].nic_name, SNAP_LEN, promisc, CAP_READ_TIMEOUT,errbuf); 
-    if ( Nic_Mgr[index].pcap_handle == NULL )
+    Nic_Mgr[INDEX].pcap_handle = pcap_open_live((const char*)Nic_Mgr[INDEX].nic_name, SNAP_LEN, promisc, CAP_READ_TIMEOUT,errbuf); 
+    if ( Nic_Mgr[INDEX].pcap_handle == NULL )
     {
-        printf("open device %s failed , error buf %s \n", Nic_Mgr[index].nic_name, errbuf);
+        printf("open device %s failed , error buf %s \n", Nic_Mgr[INDEX].nic_name, errbuf);
         return -1;
     }else{
-        printf("open device %s success \n", Nic_Mgr[index].nic_name);
-        Nic_Mgr[index].datalink = pcap_datalink(Nic_Mgr[index].pcap_handle);
+        printf("open device %s success \n", Nic_Mgr[INDEX].nic_name);
+        Nic_Mgr[INDEX].datalink = pcap_datalink(Nic_Mgr[INDEX].pcap_handle);
         if ( use_filter == 1 )
         {
             printf("use filter %s \n", filter);
-            if(pcap_compile(Nic_Mgr[index].pcap_handle,&bpf_filter,(const char*)filter,1,0xFFFFFF00) == -1)
+            if(pcap_compile(Nic_Mgr[INDEX].pcap_handle,&bpf_filter,(const char*)filter,1,0xFFFFFF00) == -1)
             {
                 printf("compile filter failed\n");
                 exit(1);
             }
-            if(pcap_setfilter(Nic_Mgr[index].pcap_handle,&bpf_filter) == -1)
+            if(pcap_setfilter(Nic_Mgr[INDEX].pcap_handle,&bpf_filter) == -1)
             {
                 printf("setfilter failed \n");
                 return -1;
@@ -335,7 +434,7 @@ int open_all_dev()
         }
     }
 
-    return index;
+    return INDEX;
 }
 
 int close_all_dev()
