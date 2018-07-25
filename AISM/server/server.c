@@ -18,6 +18,11 @@
 #define    __PORT		 5678
 #define    CLIENT_MAX    1024	
 
+typedef struct {
+    int aaa;
+    char bbb;
+}TYPEA;
+
 int main()
 {
 	int					ret = 0;
@@ -31,6 +36,8 @@ int main()
 	struct timeval		timeout={3,0};  
 	char                ret_str[64] = {0};
 	socklen_t			len = 0;
+
+    TYPEA type_a;
 
 	//  make file description
 	serv_fd = socket(AF_INET,SOCK_STREAM,0);  

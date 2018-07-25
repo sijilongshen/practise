@@ -1,8 +1,13 @@
+
+
+files := $(shell ls *.c *.cpp 2>/dev/null )
+
 #####################################################################
 #获取所有 .c .cpp 文件 src=$(wildcard *.c *.cpp ./sub/*.c) 
 #####################################################################
-source=$(wildcard *.c *.cpp)
-header=$(wildcard *.h)
+source=$(wildcard $(files)) 
+header=-I./ -I../depend/include 
+libs=-L./ -L../depend/lib
 
 #####################################################################
 #编译器使用 g++ 或 gcc 
@@ -15,12 +20,6 @@ CC=g++
 #source=$(notdir $(source))
 
 #####################################################################
-#将变量 source 里的所有 .c 转换为 .o
-#####################################################################
-objects=$(patsubst %.c,%.o,$(source))
-objects=$(patsubst %.cpp,%.o,$(source))
-
-#####################################################################
 #声明 all clean 为伪目标
 #####################################################################
 .PHONY:all clean
@@ -29,25 +28,19 @@ objects=$(patsubst %.cpp,%.o,$(source))
 #要编译生成的程序列表
 #####################################################################
 #target=helloworld1 helloworld2
-target=AServer AClient
+target=AClient
 
 all:$(target) 
 #####################################################################
-#程序 helloworld1 helloworld2 的编译命令
-#####################################################################
-# helloworld1:$(objects)
-# 	cc -o helloworld1 $(header) $(objects)
-
-# helloworld2:$(objects)
-# 	cc -o helloworld2 $(header) $(objects)
-
-#####################################################################
 #编译并输出 compiling hello world 文字 @echo "some word"
 #####################################################################
-AServer:$(objects)
-	@echo "-- compiling -- "
-	$(CC) -o AServer $(header) $(objects)
+$(target):$(source)
+	@echo "-- compiling $(target)-- "
+	$(CC) -o $(target) $(header) $(libs) $(source)
+
+install:
+	cp -f $(target) ../bin
 
 clean:
-	-rm $(target) $(objects)
+	-rm -f $(target) *.o
 

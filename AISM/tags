@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC=g++$/;"	m
+CC	client/Makefile	/^CC=g++$/;"	m
+CC	server/Makefile	/^CC=g++$/;"	m
+CLIENT_MAX	server/server.c	19;"	d	file:
+TYPEA	server/server.c	/^}TYPEA;$/;"	t	typeref:struct:__anon1	file:
+__PORT	server/server.c	18;"	d	file:
+aaa	server/server.c	/^    int aaa;$/;"	m	struct:__anon1	file:
+bbb	server/server.c	/^    char bbb;$/;"	m	struct:__anon1	file:
+files	client/Makefile	/^files := $(shell ls *.c *.cpp 2>\/dev\/null )$/;"	m
+header	Makefile	/^header=$(wildcard *.h)$/;"	m
+header	client/Makefile	/^header=-I.\/ -I..\/depend\/include $/;"	m
+header	server/Makefile	/^header=-I.\/ -I..\/depend\/include $/;"	m
+libs	client/Makefile	/^libs=-L.\/ -L..\/depend\/lib$/;"	m
+libs	server/Makefile	/^libs=-L.\/ -L..\/depend\/lib$/;"	m
+main	client/client.c	/^int main(int argc, char* argv[])$/;"	f
+main	server/server.c	/^int main()$/;"	f
+objects	Makefile	/^objects=$(patsubst %.c,%.o,$(source))$/;"	m
+objects	Makefile	/^objects=$(patsubst %.cpp,%.o,$(source))$/;"	m
+source	Makefile	/^source=$(wildcard *.c *.cpp)$/;"	m
+source	client/Makefile	/^source=$(wildcard $(files)) $/;"	m
+source	server/Makefile	/^source=$(shell ls *.c *.cpp 2>\/dev\/null )$/;"	m
+target	Makefile	/^target=AServer AClient$/;"	m
+target	client/Makefile	/^target=AClient$/;"	m
+target	server/Makefile	/^target=AServer$/;"	m
