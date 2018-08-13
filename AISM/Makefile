@@ -1,53 +1,43 @@
-#####################################################################
-#获取所有 .c .cpp 文件 src=$(wildcard *.c *.cpp ./sub/*.c) 
-#####################################################################
-source=$(wildcard *.c *.cpp)
-header=$(wildcard *.h)
 
-#####################################################################
-#编译器使用 g++ 或 gcc 
-#####################################################################
-CC=g++
+BASEDIR=$(PWD)
 
-#####################################################################
-#将变量 source 的路径都去掉 例如 ./test/aaa.c 转换为 aaa.c
-#####################################################################
-#source=$(notdir $(source))
+COMPILI_MODE=release
+ifdef mode
+ifeq ("$(origin mode)", "command line")
+COMPILI_MODE=$(mode)
+endif
+endif
 
-#####################################################################
-#将变量 source 里的所有 .c 转换为 .o
-#####################################################################
-objects=$(patsubst %.c,%.o,$(source))
-objects=$(patsubst %.cpp,%.o,$(source))
+## foreach 会将两次逻辑返回的信息合并到一起 ##
+## 所以一定要在最开始放一个空行，分隔两次的数据 ##
+define func_make
 
-#####################################################################
-#声明 all clean 为伪目标
-#####################################################################
-.PHONY:all clean
+@echo "---- compile $(1) ----"
+make -C $(BASEDIR)/$(1)
+make install -C $(BASEDIR)/$(1)
+endef 
 
-#####################################################################
-#要编译生成的程序列表
-#####################################################################
-#target=helloworld1 helloworld2
-target=AServer AClient
+define func_clean
 
-all:$(target) 
-#####################################################################
-#程序 helloworld1 helloworld2 的编译命令
-#####################################################################
-# helloworld1:$(objects)
-# 	cc -o helloworld1 $(header) $(objects)
+@echo "---- clean $(1) ----"
+make clean -C $(BASEDIR)/$(1)
+endef 
+CC =gcc
+CXX=g++
 
-# helloworld2:$(objects)
-# 	cc -o helloworld2 $(header) $(objects)
+export BASEDIR COMPILI_MODE CC CXX
 
-#####################################################################
-#编译并输出 compiling hello world 文字 @echo "some word"
-#####################################################################
-AServer:$(objects)
-	@echo "-- compiling -- "
-	$(CC) -o AServer $(header) $(objects)
+target_dir=tool/parse_config client server
+
+.PHONY: default
+default: all
+
+all:
+	@echo "basedir      : $(BASEDIR)     "
+	@echo "compile mode : $(COMPILI_MODE)"
+	@echo "-------------------------------------------------------"
+	$(foreach dir, $(target_dir), $(call func_make,$(dir)))
 
 clean:
-	-rm $(target) $(objects)
+	$(foreach dir, $(target_dir), $(call func_clean,$(dir)))
 
