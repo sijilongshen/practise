@@ -7,11 +7,13 @@ INCLUDE = $(BASEDIR)/depend/include
 
 target=libparse_config.a
 
-all:$(target) 
+all:$(target) test
 
 $(target):$(OBJECTS)
-	@echo "-- compiling $(target) : $(OBJECTS)-- "
 	ar cr $(target) $(OBJECTS)
+
+test:test.c $(OBJECTS)
+	$(CC) -o test test.c $(OBJECTS) -I$(INCLUDE) -L. -lparse_config
 
 %.o: %.c
 	$(CC) -c $< -I$(INCLUDE)
@@ -23,5 +25,5 @@ install:
 	cp -f $(target) $(BASEDIR)/depend/lib
 
 clean:
-	-rm -f $(target) *.o
+	-rm -f test $(target) *.o
 

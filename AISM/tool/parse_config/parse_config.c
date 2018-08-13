@@ -100,7 +100,7 @@ finish:
     {
         // 尝试释放结构体
         if ( config->cur_config_len != 0 )
-            destory_config_info(config);
+            Config_Destory(config);
     }
     
     return ret;
@@ -209,21 +209,4 @@ char* conf_strlwr(char* str)
         *str = tolower(*str); 
     return orig; 
 }
-
-#ifdef COMPILE_TEST
-int main()
-{
-    // 测试程序 需要测试配置文件test.cnf
-    const char* conf_file = "./test.cnf";
-    t_config_info global_config;
-
-    Config_Init(conf_file, &global_config);
-
-    printf("%s", Config_GetValue(&global_config, "day_value"));
-
-    Config_ShowList(&global_config);
-
-    return 0;
-}
-#endif
 
