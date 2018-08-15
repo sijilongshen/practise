@@ -4,7 +4,7 @@ BASEDIR=../..
 endif
 
 ifeq ($(mode),debug)
-DEBUG_FLAGS=-g -DDEBUG_FLAG
+DEBUG_SWITCH=-g -DDEBUG_SWITCH
 endif
 
 SOURCES = parse_config.c
@@ -15,19 +15,19 @@ INCLUDE = $(BASEDIR)/include
 
 target=libparse_config.a
 
-all:$(target) test
+all:$(target)
 
 $(target):$(OBJECTS)
 	ar cr $(target) $(OBJECTS)
 
-test:test.c $(OBJECTS)
-	$(CC) $(DEBUG_FLAGS) $(GLOBAL_FLAGS) -o test test.c $(OBJECTS) -I$(INCLUDE) -L. -lparse_config
+test:test.c $(target) $(OBJECTS)
+	$(CC) $(DEBUG_SWITCH) $(GLOBAL_FLAGS) -o test test.c $(OBJECTS) -I$(INCLUDE) -L. -lparse_config
 
 %.o: %.c
-	$(CC) $(DEBUG_FLAGS) $(GLOBAL_FLAGS) -c $< -I$(INCLUDE)
+	$(CC) $(DEBUG_SWITCH) $(GLOBAL_FLAGS) -c $< -I$(INCLUDE)
 
 %.o: %.cpp
-	$(CXX) $(DEBUG_FLAGS) $(GLOBAL_FLAGS) -c $< -I$(INCLUDE)
+	$(CXX) $(DEBUG_SWITCH) $(GLOBAL_FLAGS) -c $< -I$(INCLUDE)
 
 install:
 	cp -f $(target) $(BASEDIR)/lib

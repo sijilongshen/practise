@@ -1,10 +1,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#ifdef DEBUG_FLAG
+#ifdef DEBUG_SWITCH
 int debug_level=1;
 #else
-debug_level = 0;
+int debug_level = 0;
 #endif
 
 //  打印调试信息

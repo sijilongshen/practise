@@ -48,10 +48,15 @@ int Config_Init(const char* file_name, t_config_info* config)
         // 去除左右空格
         buffer = remove_left_space(line);
         buffer = remove_right_space(buffer);
+        
+        level_print("get line =+++%s+++\n", buffer);
 
         // 注释或空行
         if((buffer[0] == '#') || buffer[0] == '\n')
+        {
+            level_print("this line is annotation or blank lines\n", buffer);
             continue;
+        }
 
         // 清除回车
         len = (int)strlen(buffer);
@@ -60,7 +65,10 @@ int Config_Init(const char* file_name, t_config_info* config)
 
         // 是否是正常的 key = value
         if( (p = strchr(buffer, '=')) == NULL || p == buffer )
+        {
+            level_print("not find key '='\n", buffer);
             continue; 
+        }
 
         // 获得key 和 value信息
         key = (char*)malloc((int)(p-buffer)+1);
@@ -80,7 +88,10 @@ int Config_Init(const char* file_name, t_config_info* config)
         value = remove_right_space(value);
 
         if (strlen(key) == 0 || strlen(value) == 0 )
+        {
+            level_print("not get key info or value info", buffer);
             continue;
+        }
 
         // 初始化结构体
         if ( (one_conf = (t_conf_node*)malloc(sizeof(t_conf_node))) == NULL )
@@ -88,9 +99,7 @@ int Config_Init(const char* file_name, t_config_info* config)
             ret = MALLOC_FAILED;
             goto finish;
         }else{
-            level_print("key = %s\n", key);
-            level_print("value = %s\n", value);
-            level_print("cur_config_len = %d\n", config->cur_config_len);
+            level_print("cur_config_len=%d,key=%s,value=%s\n", config->cur_config_len, key, value);
 
             one_conf->key = key;
             one_conf->value = value;
@@ -159,11 +168,12 @@ int Config_GetValue(t_config_info* config, const char* key, char* value, int val
             tmp_conf_node = config->arr_config_list[i];
             if ( tmp_conf_node->key != NULL )
             {
-                if ( strncmp(tmp_conf_node->key, key, strlen(key)) == 0 )
+                if ( strlen(tmp_conf_node->key) == strlen(key) && strncmp(tmp_conf_node->key, key, strlen(key)) == 0 )
                 {
                     if ( strlen(tmp_conf_node->value) < value_max_len )
                     {
                         strncpy(value, tmp_conf_node->value, strlen(tmp_conf_node->value));
+                        return 0;
                     }else{
                         return PARAM_IS_TOO_SHORT;
                     }
@@ -188,9 +198,9 @@ int Config_ShowList(t_config_info* config)
         {
             tmp_conf_node = config->arr_config_list[i];
             if ( tmp_conf_node->key != NULL )
-                printf("%16s = ", tmp_conf_node->key);
+                printf("%-16s = ", tmp_conf_node->key);
             if ( tmp_conf_node->value != NULL )
-                printf("%s", tmp_conf_node->value);
+                printf("+++%s+++\n", tmp_conf_node->value);
         }
     }
     return 0;

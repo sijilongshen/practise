@@ -4,7 +4,7 @@ BASEDIR=../..
 endif
 
 ifeq ($(mode),debug)
-DEBUG_FLAGS=-g -DDEBUG_FLAG
+DEBUG_SWITCH=-g -DDEBUG_SWITCH
 endif
 
 source=$(shell ls *.c *.cpp 2>/dev/null )
@@ -19,7 +19,7 @@ target=AServer
 
 all:$(target) 
 $(target):$(source)
-	$(CC) $(DEBUG_FLAGS) $(GLOBAL_FLAGS) -o $(target) $(include) $(libs) $(source)
+	$(CC) $(DEBUG_SWITCH) $(GLOBAL_FLAGS) -o $(target) $(include) $(libs) $(source)
 
 install:
 	cp -f $(target) $(BASEDIR)/bin

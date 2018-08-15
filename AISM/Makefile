@@ -3,7 +3,7 @@ BASEDIR=$(PWD)
 
 ## 是否打开调试开关 ##
 ifeq ($(mode),debug)
-DEBUG_FLAGS=-g -DDEBUG_FLAG
+DEBUG_SWITCH=-g -DDEBUG_SWITCH
 endif
 
 ## foreach 会将两次逻辑返回的信息合并到一起 ##
@@ -28,7 +28,7 @@ CXX=g++
 ## 全局公用的宏定义 ##
 GLOBAL_FLAGS=
 
-export BASEDIR DEBUG_FLAGS CC CXX GLOBAL_FLAGS
+export BASEDIR DEBUG_SWITCH CC CXX GLOBAL_FLAGS
 
 target_dir=tool/parse_config client server
 

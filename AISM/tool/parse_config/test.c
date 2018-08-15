@@ -14,7 +14,7 @@ int main()
     printf("ret = %d\n", ret);
 
     ret = Config_GetValue(&global_config, "day_value", value, sizeof(value));
-    printf("value = %s, ret = %d\n", value, ret);
+    printf("value = ++%s++, ret = %d\n", value, ret);
 
     ret = Config_ShowList(&global_config);
     printf("ret = %d\n", ret);
