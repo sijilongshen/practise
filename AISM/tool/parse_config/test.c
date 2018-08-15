@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "parse_config.h"
+
 int main()
 {
     // 测试程序 需要测试配置文件 a.cnf

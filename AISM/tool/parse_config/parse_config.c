@@ -6,19 +6,21 @@
 
 #include "parse_config.h"
 #include "global_errno.h"
+#include "debug.h"
 
 // 从传入文件中获取配置对 放到结构体中
 int Config_Init(const char* file_name, t_config_info* config)
 {
     int                 ret = 0;
     int                 len = 0;
+    int                 index = 0;
     FILE*               conf_file = NULL;
     char                line[512] = {0};
     char*               buffer = NULL;
     char*               key = NULL;
     char*               value = NULL; 
     char*               p = NULL;
-    t_conf_node*             one_conf = NULL;
+    t_conf_node*        one_conf = NULL;
     
     if ( access(file_name, R_OK) != 0 )
     {
@@ -32,6 +34,13 @@ int Config_Init(const char* file_name, t_config_info* config)
         goto finish;
     }else{
         fseek(conf_file, 0L, SEEK_SET);
+    }
+
+    //  初始化该结构体
+    config->cur_config_len = 0;
+    for (index=0; index<MAX_CONFIG_LIST_LEN; index ++)
+    {
+        config->arr_config_list[index] = NULL;
     }
 
     while(fgets(line, sizeof(line)-1, conf_file) != NULL)
@@ -54,18 +63,19 @@ int Config_Init(const char* file_name, t_config_info* config)
             continue; 
 
         // 获得key 和 value信息
-        key = (char*)malloc((int)(buffer-p)+1);
+        key = (char*)malloc((int)(p-buffer)+1);
         value = (char*)malloc(strlen(p)+1);
         if ( key == NULL || value == NULL)
         {
             ret = MALLOC_FAILED;
             goto finish;
         }
-        strncpy(key, buffer, buffer - p);
+        strncpy(key, buffer, p - buffer );
         key = remove_left_space(key);
         key = remove_right_space(key);
 
-        strncpy(value, p++, strlen(p));
+        p ++;
+        strncpy(value, p, strlen(p));
         value = remove_left_space(value);
         value = remove_right_space(value);
 
@@ -78,12 +88,18 @@ int Config_Init(const char* file_name, t_config_info* config)
             ret = MALLOC_FAILED;
             goto finish;
         }else{
+            level_print("key = %s\n", key);
+            level_print("value = %s\n", value);
+            level_print("cur_config_len = %d\n", config->cur_config_len);
+
             one_conf->key = key;
             one_conf->value = value;
 
             // 放到配置结构体
             config->arr_config_list[config->cur_config_len] = one_conf;
             config->cur_config_len ++;
+            key = NULL;
+            value = NULL;
         }
     } 
 finish:

@@ -1,31 +1,34 @@
 
 BASEDIR=$(PWD)
 
-COMPILI_MODE=release
-ifdef mode
-ifeq ("$(origin mode)", "command line")
-COMPILI_MODE=$(mode)
-endif
+## 是否打开调试开关 ##
+ifeq ($(mode),debug)
+DEBUG_FLAGS=-g -DDEBUG_FLAG
 endif
 
 ## foreach 会将两次逻辑返回的信息合并到一起 ##
 ## 所以一定要在最开始放一个空行，分隔两次的数据 ##
 define func_make
 
-@echo "---- compile $(1) ----"
-make -C $(BASEDIR)/$(1)
-make install -C $(BASEDIR)/$(1)
+@if [ "$(1)" = "all" ]; then \
+echo "---- make $(2) ----"; \
+else \
+echo "---- $(1) $(2) ----"; \
+fi ;
+@if [ "$(1)" = "all" ]; then \
+make -C $(BASEDIR)/$(2) ; \
+else \
+make $(1) -C $(BASEDIR)/$(2) ; \
+fi ;
 endef 
 
-define func_clean
-
-@echo "---- clean $(1) ----"
-make clean -C $(BASEDIR)/$(1)
-endef 
 CC =gcc
 CXX=g++
 
-export BASEDIR COMPILI_MODE CC CXX
+## 全局公用的宏定义 ##
+GLOBAL_FLAGS=
+
+export BASEDIR DEBUG_FLAGS CC CXX GLOBAL_FLAGS
 
 target_dir=tool/parse_config client server
 
@@ -36,8 +39,12 @@ all:
 	@echo "basedir      : $(BASEDIR)     "
 	@echo "compile mode : $(COMPILI_MODE)"
 	@echo "-------------------------------------------------------"
-	$(foreach dir, $(target_dir), $(call func_make,$(dir)))
+	$(foreach dir, $(target_dir), $(call func_make,all,$(dir)))
+
+install:
+	$(foreach dir, $(target_dir), $(call func_make,install,$(dir)))
 
 clean:
-	$(foreach dir, $(target_dir), $(call func_clean,$(dir)))
+	rm -f bin/* lib/*
+	$(foreach dir, $(target_dir), $(call func_make,clean,$(dir)))
 
