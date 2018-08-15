@@ -4,27 +4,63 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CC	Makefile	/^CC=g++$/;"	m
+BASEDIR	Makefile	/^BASEDIR=$(PWD)$/;"	m
+BASEDIR	client/Makefile	/^BASEDIR=..\/..$/;"	m
+BASEDIR	server/Makefile	/^BASEDIR=..\/..$/;"	m
+BASEDIR	tool/parse_config/Makefile	/^BASEDIR=..\/..$/;"	m
+CC	Makefile	/^CC =gcc$/;"	m
 CC	client/Makefile	/^CC=g++$/;"	m
 CC	server/Makefile	/^CC=g++$/;"	m
 CLIENT_MAX	server/server.c	19;"	d	file:
+CXX	Makefile	/^CXX=g++$/;"	m
+Config_Destory	tool/parse_config/parse_config.c	/^int Config_Destory(t_config_info* config)$/;"	f
+Config_GetValue	tool/parse_config/parse_config.c	/^int Config_GetValue(t_config_info* config, const char* key, char* value, int value_max_len)$/;"	f
+Config_Init	tool/parse_config/parse_config.c	/^int Config_Init(const char* file_name, t_config_info* config)$/;"	f
+Config_ShowList	tool/parse_config/parse_config.c	/^int Config_ShowList(t_config_info* config)$/;"	f
+DEBUG_FLAGS	Makefile	/^DEBUG_FLAGS=-g -DDEBUG_FLAG$/;"	m
+DEBUG_FLAGS	client/Makefile	/^DEBUG_FLAGS=-g -DDEBUG_FLAG$/;"	m
+DEBUG_FLAGS	server/Makefile	/^DEBUG_FLAGS=-g -DDEBUG_FLAG$/;"	m
+DEBUG_FLAGS	tool/parse_config/Makefile	/^DEBUG_FLAGS=-g -DDEBUG_FLAG$/;"	m
+FILE_NOT_EXISTS	include/global_errno.h	6;"	d
+GLOBAL_FLAGS	Makefile	/^GLOBAL_FLAGS=$/;"	m
+INCLUDE	tool/parse_config/Makefile	/^INCLUDE = $(BASEDIR)\/include$/;"	m
+MALLOC_FAILED	include/global_errno.h	4;"	d
+MAX_CONFIG_LIST_LEN	include/parse_config.h	4;"	d
+NOT_EXPECT_VALUE	include/global_errno.h	2;"	d
+OBJECTS	tool/parse_config/Makefile	/^OBJECTS = $(SOURCES:.c=.o)$/;"	m
+OPEN_FILE_FAILED	include/global_errno.h	5;"	d
+PARAM_ERROR	include/global_errno.h	3;"	d
+PARAM_IS_TOO_SHORT	include/global_errno.h	7;"	d
+SOURCES	tool/parse_config/Makefile	/^SOURCES = parse_config.c$/;"	m
 TYPEA	server/server.c	/^}TYPEA;$/;"	t	typeref:struct:__anon1	file:
 __PORT	server/server.c	18;"	d	file:
 aaa	server/server.c	/^    int aaa;$/;"	m	struct:__anon1	file:
+arr_config_list	include/parse_config.h	/^    t_conf_node*        arr_config_list[MAX_CONFIG_LIST_LEN];       \/\/ 保存配置对地址的数组 $/;"	m	struct:t_config_info
 bbb	server/server.c	/^    char bbb;$/;"	m	struct:__anon1	file:
-files	client/Makefile	/^files := $(shell ls *.c *.cpp 2>\/dev\/null )$/;"	m
-header	Makefile	/^header=$(wildcard *.h)$/;"	m
-header	client/Makefile	/^header=-I.\/ -I..\/depend\/include $/;"	m
-header	server/Makefile	/^header=-I.\/ -I..\/depend\/include $/;"	m
-libs	client/Makefile	/^libs=-L.\/ -L..\/depend\/lib$/;"	m
-libs	server/Makefile	/^libs=-L.\/ -L..\/depend\/lib$/;"	m
+conf_strlwr	tool/parse_config/parse_config.c	/^char* conf_strlwr(char* str) $/;"	f
+cur_config_len	include/parse_config.h	/^    int                 cur_config_len;                             \/\/ 保存了多少个配置对$/;"	m	struct:t_config_info
+debug_level	include/debug.h	/^int debug_level = 0;$/;"	v
+debug_level	include/debug.h	/^int debug_level=1;$/;"	v
+func_make	Makefile	/^define func_make$/;"	m
+include	client/Makefile	/^include=-I$(BASEDIR)\/include $/;"	m
+include	server/Makefile	/^include=-I$(BASEDIR)\/include $/;"	m
+key	include/parse_config.h	/^    char*               key;                                        \/\/ 配置对的key$/;"	m	struct:t_conf_node
+level_print	include/debug.h	/^void level_print(const char *fmt, ...)$/;"	f
+libs	client/Makefile	/^libs   =-L$(BASEDIR)\/lib$/;"	m
+libs	server/Makefile	/^libs   =-L$(BASEDIR)\/lib$/;"	m
 main	client/client.c	/^int main(int argc, char* argv[])$/;"	f
 main	server/server.c	/^int main()$/;"	f
-objects	Makefile	/^objects=$(patsubst %.c,%.o,$(source))$/;"	m
-objects	Makefile	/^objects=$(patsubst %.cpp,%.o,$(source))$/;"	m
-source	Makefile	/^source=$(wildcard *.c *.cpp)$/;"	m
-source	client/Makefile	/^source=$(wildcard $(files)) $/;"	m
+main	tool/parse_config/test.c	/^int main()$/;"	f
+remove_left_space	tool/parse_config/parse_config.c	/^char* remove_left_space(char *s)   $/;"	f
+remove_right_space	tool/parse_config/parse_config.c	/^char* remove_right_space(char *s)   $/;"	f
+source	client/Makefile	/^source=$(shell ls *.c *.cpp 2>\/dev\/null )$/;"	m
 source	server/Makefile	/^source=$(shell ls *.c *.cpp 2>\/dev\/null )$/;"	m
-target	Makefile	/^target=AServer AClient$/;"	m
+t_conf_node	include/parse_config.h	/^typedef struct t_conf_node{$/;"	s
+t_conf_node	include/parse_config.h	/^}t_conf_node;$/;"	t	typeref:struct:t_conf_node
+t_config_info	include/parse_config.h	/^typedef struct t_config_info{$/;"	s
+t_config_info	include/parse_config.h	/^}t_config_info;$/;"	t	typeref:struct:t_config_info
 target	client/Makefile	/^target=AClient$/;"	m
 target	server/Makefile	/^target=AServer$/;"	m
+target	tool/parse_config/Makefile	/^target=libparse_config.a$/;"	m
+target_dir	Makefile	/^target_dir=tool\/parse_config client server$/;"	m
+value	include/parse_config.h	/^    char*               value;                                      \/\/ 配置对的value$/;"	m	struct:t_conf_node
