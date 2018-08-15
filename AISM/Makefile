@@ -41,6 +41,9 @@ all:
 	@echo "-------------------------------------------------------"
 	$(foreach dir, $(target_dir), $(call func_make,all,$(dir)))
 
+test:
+	$(foreach dir, $(target_dir), $(call func_make,test,$(dir)))
+
 install:
 	$(foreach dir, $(target_dir), $(call func_make,install,$(dir)))
 
