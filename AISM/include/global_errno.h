@@ -5,3 +5,4 @@
 #define OPEN_FILE_FAILED -4
 #define FILE_NOT_EXISTS  -5
 #define PARAM_IS_TOO_SHORT -6
+#define GET_CONFIG_VALUE_FAILED -7

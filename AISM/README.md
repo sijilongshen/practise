@@ -4,8 +4,8 @@
 
 
 
-for make 
-1. run 'make all' to compile all program
-2. run 'make clean' to clean all program and .o
-3. run 'make test' to compile all test program 
-4. run 'make mode=debug' to open debug switch
+编译程序实例
+1. run 'make all' 编译所有程序
+2. run 'make clean' 清理所有编译结果
+3. run 'make test' 编译出测试程序
+4. run 'make mode=debug' 编译出的程序打开调节开关
